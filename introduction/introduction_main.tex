@@ -1,0 +1,45 @@
+The implementation of the Ecological Solid Waste Management Act (R.A. 9003) in the Philippines has faced significant hurdles at the local government level, particularly in achieving consistent household segregation compliance. While the law mandates a decentralized approach through barangay-level management, many municipalities continue to struggle with high waste generation and low participation rates. Traditional governance strategies often rely on static, linear policy models that fail to account for the complex, adaptive nature of human behavior and the socio-economic heterogeneity of local communities. This research proposes a computational shift toward smart governance by leveraging Agent-Based Modeling (ABM) and Deep Reinforcement Learning (DRL) to simulate and optimize policy interventions specifically tailored for the Municipality of Bacolod, Lanao del Norte.
+
+\subsection{Statement of the Problem}
+This study systematically quantified and determined the optimal settings for policy instruments, specifically incentive, punitive, and information and educational campaign measures, required to maximize sustained household solid waste segregation compliance within the Municipality of Bacolod, Lanao del Norte, by taking into account local socioeconomic determinants and budget-constraints.
+
+% \noindent removes the indentation for this specific line
+\noindent This study answered the following specific questions:
+
+\begin{enumerate}
+
+    \item How did variations in the synthesized household behavioral parameters (e.g., the relative weight of Subjective Norms vs. Perceived Behavioral Control, derived from literature and LGU records) affect the stability and efficacy of policy outcomes within the Agent-Based Model?
+    \item What was the optimal long-term resource allocation ratio among the three policy levers (monetary incentives, punitive enforcement, and educational campaigns) that maximized compliance per peso spent, as determined by the Reinforcement Learning agent?
+    \item Which dynamic policy strategy yielded the highest overall compliance and cost-benefit ratio for the LGU while strictly adhering to the defined annual budget constraint?
+
+\end{enumerate}
+
+\subsection{Research Objectives}
+
+The primary objective of this study was to develop and apply a coupled Agent-Based Model (ABM) and Deep Reinforcement Learning (DRL) framework to determine the optimal, budget-constrained allocation of resources across policy levers for maximizing household solid waste segregation compliance in the Municipality of Bacolod.
+
+\noindent Specific objectives were:
+
+\begin{enumerate}
+
+    \item To conduct a comprehensive synthesis of academic literature and utilize contextual financial and operational data from the Philippine Statistics Authority and LGU records, including interviews with key implementing officers, to rigorously parameterize the ABM.
+    \item To develop a Multi-Level Agent-Based Model where household agent behavior was governed by a utility function incorporating Theory of Planned Behavior constructs and socioeconomic variables, and where policy levers dynamically updated behavioral constructs.
+    \item To integrate a Reinforcement Learning algorithm that enabled the LGU agent to autonomously learn the optimal policy (allocating funds among incentives, enforcement staff, and education campaign) that maximized a composite reward function balancing compliance and financial cost, while adhering to a defined budget constraint.
+    \item To simulate and validate the efficacy and cost-effectiveness of budget allocation strategies (Pure Incentive, Pure Penalty, Pure Information Education Campaign, and Hybrid regimes) and provide actionable, data-driven recommendations on the optimal resource mix for the LGU enforcing RA 9003.
+
+\end{enumerate}
+
+\subsection{Significance of the Study}
+This research contributes to the interdisciplinary fields of environmental science and computational social science by advancing the integration of the Theory of Planned Behavior (TPB) with Deep Reinforcement Learning (DRL) \cite{TianReview2024}. Academically, it demonstrates the utility of Deep Neural Networks (DNNs) in processing high-dimensional state spaces—specifically varying compliance rates across seven heterogeneous barangays—to discover adaptive policy strategies that traditional linear programming fails to capture \cite{Dey2025, HaMinh2025}. 
+
+Practically, the study provides Local Government Units (LGUs) with a low-risk, data-driven decision-support tool to test policy mixes (incentives vs. enforcement) without the costs of real-world trials. On a national level, the successful implementation of these recommendations supports environmental sustainability and climate mitigation goals by improving waste segregation at the source, thereby promoting a circular economy and reducing landfill methane emissions.
+
+\subsection{Scope and Limitations}
+The study is geographically bounded to the seven coastal and urban barangays of the Municipality of Bacolod, Lanao del Norte, currently served by the municipal collection system. The remaining nine barangays are excluded due to logistical inaccessibility. 
+
+The scope is strictly focused on household-level segregation and the executive implementation of existing legislation (Municipal Ordinance No. 2018-05), rather than the drafting of new laws. While the model utilizes high-fidelity proxy data for behavioral weights \cite{Paigalan2025} and primary qualitative data from Key Informant Interviews (KIIs) with MENRO and local officials, it remains an abstraction of reality. Specific limitations include:
+\begin{itemize}
+    \item The model excludes downstream operations such as landfill management and collection routing.
+    \item Micro-level agent values are derived from a meta-analysis of regional empirical data rather than primary household surveys.
+    \item The simulation assumes honest interactions and excludes informal bypass mechanisms, such as tipping collectors to accept unsegregated waste, to focus on official policy optimization.
+\end{itemize}

@@ -1,0 +1,60 @@
+\subsection{Research Design}
+This study employed a computational simulation research design that integrated Agent-Based Modeling (ABM) with Deep Reinforcement Learning (DRL) optimization. This design created a virtual laboratory for testing Solid Waste Management (SWM) policies, allowing for the autonomous discovery of the optimal resource allocation strategy without the cost and risk of real-world trials. The research followed three main phases: (1) Model parameterization using literature synthesis, (2) DRL integration and training, and (3) Policy scenario simulation and analysis.
+
+\subsection{Data Sources and Model Parameterization}
+
+In lieu of collecting large-scale primary survey data, this study constructed a high-fidelity Agent-Based Model (ABM) by synthesizing data from academic literature, public government statistics, and operational records obtained through key-informant interviews. The behavioral core of the household agents was grounded in the Theory of Planned Behavior (TPB), with parameters for Attitude ($w_A$), Subjective Norms ($w_{SN}$), and Perceived Behavioral Control ($w_{PBC}$) derived from a systematic review of environmental psychology literature \citep{Taraghi2025, Moeini2023}. To ensure ecological validity, agent initialization utilized empirical Knowledge, Attitude, and Practices (KAP) data \citep{Paigalan2025}, explicitly calibrating agents to reflect a realistic ``Intention-Action Gap'' (High Attitude $A_0 \approx 0.66$ vs. Low Compliance $B_0 \approx 0.58$). The simulation environment was further contextualized to seven specific barangays in the Municipality of Bacolod (e.g., Liangan East, Poblacion) using validated socio-demographic profiles and LGU operational data. The LGU-DRL agent operates within a strict annual budget of \textpeso 1,500,000, discretized quarterly, to optimize a ``Policy Mix'' across three cost-constrained levers: (1) \textbf{Enforcement} ($C_{\mathrm{Enf}}$), calculated via Equation \ref{eq:cost_enforcement} based on personnel wages and coverage ratios; (2) \textbf{Monetary Incentives} ($C_{\mathrm{Inc}}$), modeled in Equation \ref{eq:cost_incentives} as a variable function of $N_{\mathrm{Compliant}}$ to introduce a fiscal ``victim of success'' risk; and (3) \textbf{IEC Campaigns} ($C_{\mathrm{IEC}}$), defined in Equation \ref{eq:cost_iec} as tiered fixed costs for media dissemination.
+
+\subsection{Multi-Level Agent-Based Model Architecture}
+
+The simulation was developed using the Python library \textit{MESA} \citep{Mesa2025}, a choice supported by recent reviews of computational tools in solid waste management \citep{TianReview2024, Ma2023}. The architecture employed a strict hierarchical design within a single Agent-Based Model (ABM) environment, containing seven distinct \texttt{BarangayAgent} objects (representing Liangan East, Esperanza, Poblacion, Binuni, Demologan, Mati, and Babalaya), which in turn encapsulated their respective populations of \texttt{HouseholdAgent} objects. This multi-level structure accurately captured the decentralized governance flow and heterogeneity of the Municipality of Bacolod \citep{Brugiere2022}. The model operated on quarterly time steps, where \texttt{BarangayAgent}s managed fiscal allocation, policy implementation (e.g., ``No Segregation, No Collection''), and enforcement deployment, bridging municipal mandates with local execution \citep{Nishimura2022}. \texttt{HouseholdAgent}s made binary segregation decisions based on a Theory of Planned Behavior (TPB) utility function, weighing policy strictness, social norms, and infrastructure availability against the ``cost of effort'' \citep{Ceschi2021}. To enable autonomous policy optimization, the system was formalized as a finite-horizon Markov Decision Process (MDP), where an LGU-DRL agent dynamically allocated a continuous budget across Enforcement, Incentives, and IEC levers to maximize long-term compliance while minimizing costs \citep{Kompella2020}. Crucially, the model incorporated a ``Norm Internalization Mechanism'' to simulate behavioral hysteresis, where sustained high compliance ($>70\%$) created internalized social habits that resisted decay even when external interventions were reduced \citep{Centola2018}.
+
+\subsection{Heuristic-Guided Deep Reinforcement Learning (HuDRL) Framework}
+
+To overcome the ``Sparse Reward Problem'' inherent in high-dimensional municipal resource allocation ($d=21$), this study implements a Heuristic-Guided Deep Reinforcement Learning (HuDRL) framework utilizing Deep Proximal Policy Optimization (Deep PPO). The agent employs a custom Actor-Critic architecture where two deep neural networks (64-neuron dense layers with ReLU activation) process a multi-modal State Vector ($S_t$) comprising barangay compliance rates, fiscal liquidity, and political capital. To strictly enforce the municipality's fiscal constraints, the Actor network utilizes a Softmax Normalization Layer, mathematically guaranteeing that the continuous action vector ($A_t$)—representing allocations for IEC, Enforcement, and Incentives—never exceeds the quarterly budget cap ($B_{\mathrm{Quarterly}}$).
+
+Crucially, the framework integrates ``Reward Shaping'' to guide the agent away from sub-optimal, equitable distributions (the ``Status Quo'' trap) and toward a ``Sequential Saturation'' strategy. The Composite Reward Function ($R_{\mathrm{total}}$) balances environmental compliance against fiscal sustainability and political backlash, while adding heuristic bonuses ($+20,000$) when the agent concentrates $>40\%$ of resources on the weakest performing barangay. This logic is operationalized in the HuDRL Algorithm (Algorithm \ref{alg:hudrl}), which utilizes a ``Targeted Amplification'' mechanism to act as a saliency filter, multiplying intent signals to critical nodes by a factor of $\alpha=100$ to accelerate the discovery of optimal tipping points.
+
+\begin{algorithm}[H]
+\caption{Heuristic-Guided Action Selection \& Reward Shaping (HuDRL)}
+\label{alg:hudrl}
+\begin{algorithmic}[1]
+
+% FIXED: Replaced \Require with \STATE \textbf{Input:}
+\STATE \textbf{Input:} $S_t$ (State Vector), $\mathcal{B}_{list}$ (Barangay Agents), $B_{cap}$ (Quarterly Budget)
+% FIXED: Replaced \Ensure with \STATE \textbf{Output:}
+\STATE \textbf{Output:} $A_{final}$ (Optimized Budget Allocation)
+
+\STATE \textbf{Step 1: Observation}
+\STATE $S_t \gets \text{GetCurrentState}()$
+
+\STATE \textbf{Step 2: Identify Critical Node}
+\STATE $B_{crit} \gets \min_{b \in \mathcal{B}_{list}} (b.compliance\_rate)$ \COMMENT{Identify weakest performing barangay}
+
+\STATE \textbf{Step 3: Initial Policy Prediction}
+\STATE $A_{raw} \gets \pi_\theta(S_t)$ \COMMENT{Neural Network prediction}
+
+\STATE \textbf{Step 4: Heuristic Targeted Amplification}
+\IF{$A_{raw}[B_{crit}] > \delta_{intent}$} \COMMENT{If agent shows intent to fund critical node}
+    \STATE $A_{raw}[B_{crit}] \gets A_{raw}[B_{crit}] \times \alpha$ \COMMENT{Amplify signal (e.g., $\alpha=100$)}
+    \STATE Decrease other allocations to balance
+\ENDIF
+
+\STATE \textbf{Step 5: Budget Normalization (Softmax-style)}
+\STATE $A_{final} \gets \text{Softmax}(A_{raw}) \times B_{cap}$
+
+\STATE \textbf{Step 6: Execution}
+\STATE Apply $A_{final}$ to ABM Environment
+
+\STATE \textbf{Step 7: Reward Shaping}
+\STATE $R_{total} \gets R_{base} + R_{bonus}$ \COMMENT{Includes Jackpot for Saturation Strategy}
+
+\STATE \textbf{Step 8: Network Update}
+\STATE PPO.Update($S_t$, $A_{final}$, $R_{total}$)
+
+\end{algorithmic}
+\end{algorithm}
+
+\subsection{Simulation and Analysis}
+
+This study employed a rigorous four-stage experimental design to operationalize the coupled ABM-RL framework and isolate the causal impact of specific policy interventions. The process began with \textbf{Initialization and Calibration}, where the model was grounded in demographic and operational data from seven specific barangays and iteratively tuned to replicate the municipality's baseline compliance rate (approx. 10\%) \citep{Villanueva2021, Jimenez2025}. Following calibration, the Heuristic-Guided Deep Reinforcement Learning (HuDRL) agent underwent extensive training over 12 simulated lifetimes (approx. 10,000 periods) to explore the high-dimensional policy space \citep{Dey2025}. To evaluate governance efficacy, the study simulated three distinct \textbf{Policy Scenarios}: a \textit{Pure Penalty Regime} (representing the status quo/enforcement-heavy approach), a \textit{Pure Incentive Regime} (``soft'' governance), and a \textit{Hybrid Regime} (an adaptive, AI-optimized mix of IEC, incentives, and enforcement) \citep{TianReview2024}. System performance was quantified using four key metrics: Maximum Sustainable Compliance, Cost-Effectiveness (compliance gained per peso), Policy Equity (variance across barangays), and Optimal Resource Allocation. Finally, the model's structural robustness was validated through a **Global Sensitivity Analysis** using the Sobol method \citep{Sobol2001}, which stress-tested the influence of core behavioral parameters ($w_a, w_{sn}, c_{effort}$) on global compliance outcomes.

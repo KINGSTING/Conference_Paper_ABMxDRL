@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.12.28)  18 FEB 2026 20:06
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.12.28)  18 FEB 2026 23:35
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -104,9 +104,7 @@ LaTeX Font Info:    Font shape `OT1/ptm/bx/it' in size <24> not available
 \IEEEPARstartletwidth=\dimen171
 \c@IEEEbiography=\count289
 \@IEEEtranrubishbin=\box54
-)
-** ATTENTION: Overriding command lockouts (line 2).
-(C:\Users\Jemar John\AppData\Local\Programs\MiKTeX\tex/latex/cite\cite.sty
+) (C:\Users\Jemar John\AppData\Local\Programs\MiKTeX\tex/latex/cite\cite.sty
 LaTeX Info: Redefining \cite on input line 302.
 LaTeX Info: Redefining \nocite on input line 332.
 Package: cite 2015/02/27  v 5.5
@@ -183,23 +181,12 @@ Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
 LaTeX Font Info:    Redeclaring math symbol \hbar on input line 98.
 LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
 (Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
-)) (C:\Users\Jemar John\AppData\Local\Programs\MiKTeX\tex/latex/algorithms\algorithmic.sty
-Package: algorithmic 2009/08/24 v0.1 Document Style `algorithmic'
- (C:\Users\Jemar John\AppData\Local\Programs\MiKTeX\tex/latex/base\ifthen.sty
-Package: ifthen 2024/03/16 v1.1e Standard LaTeX ifthen package (DPC)
-) (C:\Users\Jemar John\AppData\Local\Programs\MiKTeX\tex/latex/graphics\keyval.sty
+)) (C:\Users\Jemar John\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graphicx.sty
+Package: graphicx 2024/12/31 v1.2e Enhanced LaTeX Graphics (DPC,SPQR)
+ (C:\Users\Jemar John\AppData\Local\Programs\MiKTeX\tex/latex/graphics\keyval.sty
 Package: keyval 2022/05/29 v1.15 key=value parser (DPC)
 \KV@toks@=\toks23
-)
-\c@ALC@unique=\count302
-\c@ALC@line=\count303
-\c@ALC@rem=\count304
-\c@ALC@depth=\count305
-\ALC@tlm=\skip55
-\algorithmicindent=\skip56
-) (C:\Users\Jemar John\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graphicx.sty
-Package: graphicx 2024/12/31 v1.2e Enhanced LaTeX Graphics (DPC,SPQR)
- (C:\Users\Jemar John\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graphics.sty
+) (C:\Users\Jemar John\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graphics.sty
 Package: graphics 2024/08/06 v1.4g Standard LaTeX Graphics (DPC,SPQR)
  (C:\Users\Jemar John\AppData\Local\Programs\MiKTeX\tex/latex/graphics\trig.sty
 Package: trig 2023/12/02 v1.11 sin cos tan (DPC)
@@ -242,65 +229,69 @@ Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
 \cmidrulesep=\dimen190
 \cmidrulekern=\dimen191
 \defaultaddspace=\dimen192
-\@cmidla=\count306
-\@cmidlb=\count307
+\@cmidla=\count302
+\@cmidlb=\count303
 \@aboverulesep=\dimen193
 \@belowrulesep=\dimen194
-\@thisruleclass=\count308
-\@lastruleclass=\count309
+\@thisruleclass=\count304
+\@lastruleclass=\count305
 \@thisrulewidth=\dimen195
 ) (C:\Users\Jemar John\AppData\Local\Programs\MiKTeX\tex/latex/algorithms\algorithm.sty
 Package: algorithm 2009/08/24 v0.1 Document Style `algorithm' - floating environment
  (C:\Users\Jemar John\AppData\Local\Programs\MiKTeX\tex/latex/float\float.sty
 Package: float 2001/11/08 v1.3d Float enhancements (AL)
-\c@float@type=\count310
+\c@float@type=\count306
 \float@exts=\toks24
 \float@box=\box57
 \@float@everytoks=\toks25
 \@floatcapt=\box58
+) (C:\Users\Jemar John\AppData\Local\Programs\MiKTeX\tex/latex/base\ifthen.sty
+Package: ifthen 2024/03/16 v1.1e Standard LaTeX ifthen package (DPC)
 )
 \@float@every@algorithm=\toks26
-\c@algorithm=\count311
-) (C:\Users\Jemar John\AppData\Local\Programs\MiKTeX\tex/latex/multirow\multirow.sty
-Package: multirow 2024/11/12 v2.9 Span multiple rows of a table
-\multirow@colwidth=\skip57
-\multirow@cntb=\count312
-\multirow@dima=\skip58
-\bigstrutjot=\dimen196
+\c@algorithm=\count307
+) (C:\Users\Jemar John\AppData\Local\Programs\MiKTeX\tex/latex/algorithms\algorithmic.sty
+Package: algorithmic 2009/08/24 v0.1 Document Style `algorithmic'
+\c@ALC@unique=\count308
+\c@ALC@line=\count309
+\c@ALC@rem=\count310
+\c@ALC@depth=\count311
+\ALC@tlm=\skip55
+\algorithmicindent=\skip56
 ) (C:\Users\Jemar John\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3backend-pdftex.def
 File: l3backend-pdftex.def 2025-10-09 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count313
-)
-No file cs_conference_paper.aux.
+\l__color_backend_stack_int=\count312
+) (cs_conference_paper.aux)
 \openout1 = `cs_conference_paper.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 12.
+LaTeX Font Info:    ... okay on input line 12.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 12.
+LaTeX Font Info:    ... okay on input line 12.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 12.
+LaTeX Font Info:    ... okay on input line 12.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 12.
+LaTeX Font Info:    ... okay on input line 12.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 12.
+LaTeX Font Info:    ... okay on input line 12.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 12.
+LaTeX Font Info:    ... okay on input line 12.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 12.
+LaTeX Font Info:    ... okay on input line 12.
+
 -- Lines per column: 56 (exact).
 (C:\Users\Jemar John\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count314
-\scratchdimen=\dimen197
+\scratchcounter=\count313
+\scratchdimen=\dimen196
 \scratchbox=\box59
-\nofMPsegments=\count315
-\nofMParguments=\count316
+\nofMPsegments=\count314
+\nofMParguments=\count315
 \everyMPshowfont=\toks27
-\MPscratchCnt=\count317
-\MPscratchDim=\dimen198
-\MPnumerator=\count318
-\makeMPintoPDFobject=\count319
+\MPscratchCnt=\count316
+\MPscratchDim=\dimen197
+\MPnumerator=\count317
+\makeMPintoPDFobject=\count318
 \everyMPtoPDFconversion=\toks28
 ) (C:\Users\Jemar John\AppData\Local\Programs\MiKTeX\tex/latex/epstopdf-pkg\epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
@@ -308,152 +299,51 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 48
  (C:\Users\Jemar John\AppData\Local\Programs\MiKTeX\tex/latex/00miktex\epstopdf-sys.cfg
 File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
 ))
-LaTeX Font Info:    Calculating math sizes for size <11> on input line 41.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 41.
- (C:\Users\Jemar John\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsa.fd
+c:/Users/Jemar John/Desktop/CS_Thesis/Conference_Paper/cs_conference_paper.tex:24: Missing $ inserted.
+<inserted text> 
+                $
+l.24 ...ts (LGUs)... [Paste Abstract text from cs_
+                                                  conference_paper.pdf here]
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+LaTeX Font Info:    Trying to load font information for U+msa on input line 24.
+(C:\Users\Jemar John\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 41.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 24.
  (C:\Users\Jemar John\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-
-LaTeX Warning: Citation `b1' on page 1 undefined on input line 54.
-
-[1{C:/Users/Jemar John/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}{C:/Users/Jemar John/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/base/8r.enc}
-
-
-]
-
-LaTeX Warning: Citation `b6' on page 2 undefined on input line 76.
+c:/Users/Jemar John/Desktop/CS_Thesis/Conference_Paper/cs_conference_paper.tex:25: Missing $ inserted.
+<inserted text> 
+                $
+l.25 \end{abstract}
+                   
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
 
 
-LaTeX Warning: File `fig_map.png' not found on input line 86.
+! LaTeX Error: File `introduction_main.tex' not found.
 
+Type X to quit or <RETURN> to proceed,
+or enter new name. (Default extension: tex)
 
-c:/Users/Jemar John/Desktop/CS_Thesis/Conference_Paper/cs_conference_paper.tex:86: Package pdftex.def Error: File `fig_map.png' not found: using draft setting.
+Enter file name: 
+c:/Users/Jemar John/Desktop/CS_Thesis/Conference_Paper/cs_conference_paper.tex:31: Emergency stop.
+<read *> 
+         
+l.31 \input{introduction_main}
+                              ^^M
+*** (cannot \read from terminal in nonstop modes)
 
-See the pdftex.def package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.86 ...{\includegraphics[width=3in]{fig_map.png}}
-                                                  
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-LaTeX Font Info:    Trying to load font information for OT1+pcr on input line 86.
-(C:\Users\Jemar John\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\ot1pcr.fd
-File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
-)
-
-LaTeX Warning: Reference `tab:demographics' on page 2 undefined on input line 94.
-
-[2]
-LaTeX Font Info:    Trying to load font information for OMS+ptm on input line 188.
- (C:\Users\Jemar John\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\omsptm.fd
-File: omsptm.fd 
-)
-LaTeX Font Info:    Font shape `OMS/ptm/m/n' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 188.
-
-
-LaTeX Warning: File `fig_validation.png' not found on input line 209.
-
-
-c:/Users/Jemar John/Desktop/CS_Thesis/Conference_Paper/cs_conference_paper.tex:209: Package pdftex.def Error: File `fig_validation.png' not found: using draft setting.
-
-See the pdftex.def package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.209 ...egraphics[width=3in]{fig_validation.png}}
-                                                  
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-
-LaTeX Warning: Reference `fig:validation' on page 3 undefined on input line 214.
-
-
-LaTeX Warning: Reference `tab:results' on page 3 undefined on input line 244.
-
-
-LaTeX Warning: File `fig_results.png' not found on input line 250.
-
-
-c:/Users/Jemar John/Desktop/CS_Thesis/Conference_Paper/cs_conference_paper.tex:250: Package pdftex.def Error: File `fig_results.png' not found: using draft setting.
-
-See the pdftex.def package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.250 ...ludegraphics[width=3in]{fig_results.png}}
-                                                  
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-[3]
-
-LaTeX Warning: File `fig_sobol.png' not found on input line 270.
-
-
-c:/Users/Jemar John/Desktop/CS_Thesis/Conference_Paper/cs_conference_paper.tex:270: Package pdftex.def Error: File `fig_sobol.png' not found: using draft setting.
-
-See the pdftex.def package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.270 ...ncludegraphics[width=3in]{fig_sobol.png}}
-                                                  
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-
-LaTeX Warning: Reference `fig:sobol' on page 4 undefined on input line 275.
-
-
-LaTeX Warning: Reference `eq:reward' on page 4 undefined on input line 288.
-
-[4]
-
-** Conference Paper **
-Before submitting the final camera ready copy, remember to:
-
- 1. Manually equalize the lengths of two columns on the last page
- of your paper;
-
- 2. Ensure that any PostScript and/or PDF output post-processing
- uses only Type 1 fonts and that every step in the generation
- process uses the appropriate paper size.
-
-[5
-
-] (cs_conference_paper.aux)
- ***********
-LaTeX2e <2025-11-01>
-L3 programming layer <2025-12-24>
- ***********
-
-
-LaTeX Warning: There were undefined references.
-
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
- ) 
+ 
 Here is how much of TeX's memory you used:
- 4716 strings out of 467871
- 76483 string characters out of 5415919
- 496109 words of memory out of 5000000
- 33535 multiletter control sequences out of 15000+600000
- 671896 words of font info for 129 fonts, out of 8000000 for 9000
+ 4340 strings out of 467871
+ 69388 string characters out of 5415919
+ 473450 words of memory out of 5000000
+ 33186 multiletter control sequences out of 15000+600000
+ 653184 words of font info for 96 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 57i,11n,65p,737b,602s stack positions out of 10000i,1000n,20000p,200000b,200000s
-<C:/Users/Jemar John/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/Jemar John/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/Jemar John/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Users/Jemar John/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/Jemar John/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/Jemar John/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/Jemar John/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/Jemar John/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/Jemar John/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/Jemar John/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Users/Jemar John/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Users/Jemar John/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm10.pfb><C:/Users/Jemar John/AppData/Local/Programs/MiKTeX/fonts/type1/urw/courier/ucrr8a.pfb><C:/Users/Jemar John/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmb8a.pfb><C:/Users/Jemar John/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmbi8a.pfb><C:/Users/Jemar John/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmr8a.pfb><C:/Users/Jemar John/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmri8a.pfb>
-Output written on cs_conference_paper.pdf (5 pages, 224708 bytes).
-PDF statistics:
- 104 PDF objects out of 1000 (max. 8388607)
- 0 named destinations out of 1000 (max. 500000)
- 1 words of extra memory for PDF output out of 10000 (max. 10000000)
-
+ 57i,8n,65p,349b,271s stack positions out of 10000i,1000n,20000p,200000b,200000s
+c:/Users/Jemar John/Desktop/CS_Thesis/Conference_Paper/cs_conference_paper.tex:31:  ==> Fatal error occurred, no output PDF file produced!
