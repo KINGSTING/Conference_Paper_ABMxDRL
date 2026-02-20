@@ -1,31 +1,32 @@
+%!TEX root = ../cs_conference_paper.tex
+
 The implementation of the Ecological Solid Waste Management Act (R.A. 9003) in the Philippines has faced significant hurdles at the local government level, particularly in achieving consistent household segregation compliance. While the law mandates a decentralized approach through barangay-level management, many municipalities continue to struggle with high waste generation and low participation rates. Traditional governance strategies often rely on static, linear policy models that fail to account for the complex, adaptive nature of human behavior and the socio-economic heterogeneity of local communities. This research proposes a computational shift toward smart governance by leveraging Agent-Based Modeling (ABM) and Deep Reinforcement Learning (DRL) to simulate and optimize policy interventions specifically tailored for the Municipality of Bacolod, Lanao del Norte.
 
 \subsection{Statement of the Problem}
-This study systematically quantified and determined the optimal settings for policy instruments, specifically incentive, punitive, and information and educational campaign measures, required to maximize sustained household solid waste segregation compliance within the Municipality of Bacolod, Lanao del Norte, by taking into account local socioeconomic determinants and budget-constraints.
+The study aims to find the most cost-effective way for the Municipality of Bacolod to allocate its limited budget across three solid waste management strategies—rewards, punishments, and educational campaigns—to achieve the highest long-term compliance in household waste segregation.
 
-% \noindent removes the indentation for this specific line
 \noindent This study answered the following specific questions:
 
 \begin{enumerate}
 
-    \item How did variations in the synthesized household behavioral parameters (e.g., the relative weight of Subjective Norms vs. Perceived Behavioral Control, derived from literature and LGU records) affect the stability and efficacy of policy outcomes within the Agent-Based Model?
-    \item What was the optimal long-term resource allocation ratio among the three policy levers (monetary incentives, punitive enforcement, and educational campaigns) that maximized compliance per peso spent, as determined by the Reinforcement Learning agent?
-    \item Which dynamic policy strategy yielded the highest overall compliance and cost-benefit ratio for the LGU while strictly adhering to the defined annual budget constraint?
+    \item How do variations in synthesized behavioral parameters influence policy efficacy and stability within the simulated environment?
+    \item What is the optimal mathematical allocation ratio among incentives, enforcement, and education to maximize cost-effectiveness?
+    \item Which dynamic policy combination yields the highest aggregate compliance and optimal cost-benefit ratio while strictly adhering to the municipality's annual fiscal constraints?
 
 \end{enumerate}
 
 \subsection{Research Objectives}
 
-The primary objective of this study was to develop and apply a coupled Agent-Based Model (ABM) and Deep Reinforcement Learning (DRL) framework to determine the optimal, budget-constrained allocation of resources across policy levers for maximizing household solid waste segregation compliance in the Municipality of Bacolod.
+The primary objective of this study is to develop a coupled Agent-Based Model (ABM) and Heuristic-Guided Deep Reinforcement Learning (HuDRL) framework to optimize budget-constrained resource allocation, maximizing household solid waste segregation compliance in the Municipality of Bacolod.
 
-\noindent Specific objectives were:
+\noindent Specifically, the study aims:
 
 \begin{enumerate}
 
-    \item To conduct a comprehensive synthesis of academic literature and utilize contextual financial and operational data from the Philippine Statistics Authority and LGU records, including interviews with key implementing officers, to rigorously parameterize the ABM.
-    \item To develop a Multi-Level Agent-Based Model where household agent behavior was governed by a utility function incorporating Theory of Planned Behavior constructs and socioeconomic variables, and where policy levers dynamically updated behavioral constructs.
-    \item To integrate a Reinforcement Learning algorithm that enabled the LGU agent to autonomously learn the optimal policy (allocating funds among incentives, enforcement staff, and education campaign) that maximized a composite reward function balancing compliance and financial cost, while adhering to a defined budget constraint.
-    \item To simulate and validate the efficacy and cost-effectiveness of budget allocation strategies (Pure Incentive, Pure Penalty, Pure Information Education Campaign, and Hybrid regimes) and provide actionable, data-driven recommendations on the optimal resource mix for the LGU enforcing RA 9003.
+    \item To parameterize the ABM using synthesized academic literature, municipal financial data, and key-informant interviews.
+    \item To construct a Multi-Level ABM where household behavior is governed by the Theory of Planned Behavior and dynamically responds to local policy interventions.
+    \item To integrate a DRL algorithm that enables the municipal agent to autonomously learn optimal fund allocations across incentives, enforcement, and education under strict budget limits.
+    \item To evaluate the cost-effectiveness of isolated (Pure Incentive, Pure Penalty, Pure Education) and Hybrid policy regimes, providing data-driven recommendations for enforcing RA 9003.
 
 \end{enumerate}
 

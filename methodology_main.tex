@@ -1,0 +1,171 @@
+%!TEX root = ../cs_conference_paper.tex
+
+\subsection{Research Design}
+This study employed a computational simulation research design that integrated Agent-Based Modeling (ABM) with Deep Reinforcement Learning (DRL) optimization. This design created a virtual laboratory for testing Solid Waste Management (SWM) policies, allowing for the autonomous discovery of the optimal resource allocation strategy without the cost and risk of real-world trials. The research followed three main phases: (1) Model parameterization using literature synthesis, (2) DRL integration and training, and (3) Policy scenario simulation and analysis.
+
+\subsection{Data Sources and Model Parameterization}
+
+In lieu of collecting large-scale primary survey data, this study constructed a high-fidelity Agent-Based Model (ABM) by synthesizing data from academic literature, public government statistics, and operational records obtained through key-informant interviews. The behavioral core of the household agents was grounded in the Theory of Planned Behavior (TPB), with parameters for Attitude ($w_A$), Subjective Norms ($w_{SN}$), and Perceived Behavioral Control ($w_{PBC}$) derived from a systematic review of environmental psychology literature \cite{Taraghi2025, Moeini2023}.
+
+To ensure ecological validity, agent initialization utilized empirical Knowledge, Attitude, and Practices (KAP) data \cite{Paigalan2025}, explicitly calibrating agents to reflect a realistic ``Intention-Action Gap'' (High Attitude $A_0 \approx 0.66$ vs. Low Compliance $B_0 \approx 0.58$). The simulation environment was further contextualized to seven specific barangays in the Municipality of Bacolod (e.g., Liangan East, Poblacion) using validated socio-demographic profiles and LGU operational data.
+
+The LGU-DRL agent operates within a strict annual budget of \textpeso 1,500,000, discretized quarterly, to optimize a ``Policy Mix'' across three cost-constrained levers: (1) \textit{Enforcement} ($C_{\mathrm{Enf}}$), calculated via Equation \ref{eq:cost_enforcement} based on personnel wages and coverage ratios; (2) \textit{Monetary Incentives} ($C_{\mathrm{Inc}}$), modeled in Equation \ref{eq:cost_incentives} as a variable function of $N_{\mathrm{Compliant}}$ to introduce a fiscal ``victim of success'' risk; and (3) \textit{IEC Campaigns} ($C_{\mathrm{IEC}}$), defined in Equation \ref{eq:cost_iec} as tiered fixed costs for media dissemination.
+
+\subsubsection{Cost of Enforcement ($C_{\mathrm{Enf}}$)}
+Modeled as a resource-constrained operational expense based on personnel wages and coverage capacity. Assuming a logistical limit of 30 households per officer per day, the cost relies on the regional minimum wage for Region X over 66 working days per quarter.
+\begin{equation}
+    C_{\mathrm{Enf}} = (N_{\mathrm{Enforcers}} \times W_{\mathrm{Daily}} \times 66)
+    \label{eq:cost_enforcement}
+\end{equation}
+
+\subsubsection{Cost of Incentives ($C_{\mathrm{Inc}}$)}
+Structured as a dynamic, variable liability directly proportional to the rate of public compliance. Because the total cost scales with the number of compliant households, the agent faces a fiscal ``Victim of Success'' risk, requiring it to balance positive reinforcement against rapid treasury depletion.
+\begin{equation}
+    C_{\mathrm{Inc}} = (V_{\mathrm{Reward}} \times N_{\mathrm{Compliant}})
+    \label{eq:cost_incentives}
+\end{equation}
+
+\subsubsection{Cost of Information \& Educational Campaign ($C_{\mathrm{IEC}}$)}
+Calculated as tiered fixed costs associated with discrete public awareness efforts. This formulation captures the explicit expenses of procuring local radio broadcast spots and mobilizing community events.
+\begin{equation}
+    C_{\mathrm{IEC}} = (N_{\mathrm{Spots}} \times R_{\mathrm{Radio}}) + (N_{\mathrm{Events}} \times C_{\mathrm{Mobilization}})
+    \label{eq:cost_iec}
+\end{equation}
+
+\subsubsection{Multi-Level ABM Architecture}
+
+The simulation, developed using Python's \textit{MESA} framework, employs a hierarchical structure to mirror the decentralized governance of the Municipality of Bacolod. Formulated as a Markov Decision Process (MDP), the model operates on quarterly time steps and features a Deep Reinforcement Learning (DRL) agent that optimizes budget allocations across enforcement, incentives, and educational campaigns to maximize compliance.
+
+\noindent The architecture is driven by three interacting agent classes:
+
+\begin{itemize}
+    \item \textit{Barangay Agents (Local Government):} Representing seven distinct barangays, these agents manage fiscal allocation, policy formulation, and personnel deployment. They aggregate local compliance data to serve as the observational state and reward signal for the DRL mechanism.
+    
+    \item \textit{Enforcement Agents (Operational Arm):} Tasked with stochastic monitoring, these agents conduct random inspections to enforce the ``No Segregation, No Collection'' policy. Their presence deters non-compliance but incurs high operational costs, forcing the system to balance strict environmental policing with fiscal sustainability.
+    
+    \item \textit{Household Agents (Citizens):} Geographically assigned to barangays, these agents make binary segregation decisions based on the Theory of Planned Behavior. Their choices are dynamically influenced by policy strictness, perceived enforcement intensity, and the social norms of neighboring households.
+\end{itemize}
+
+A critical innovation in this environment is the Norm Internalization Mechanism, which dictates that sustained community compliance exceeding 70\% transforms waste segregation into a resilient social habit, resisting decay even when the LGU reduces external interventions.
+\subsection{Household Agent Design}
+
+The decision-making architecture of the \texttt{HouseholdAgent} is governed by a dynamic utility function grounded in the Theory of Planned Behavior (TPB), which posits that an individual's intention to perform a behavior is a function of their attitude, subjective norms, and perceived behavioral control \cite{Ceschi2021}. In contrast to static behavioral models, this framework incorporates time-variant weights ($w(t)$) for psychological constructs, allowing agent behavior to evolve non-linearly in response to LGU interventions and social feedback loops \cite{Taraghi2025, Ma2023}. The core decision logic is represented by the utility of segregation ($U_{\mathrm{segregate}}$):
+
+\begin{equation}
+\begin{split}
+    U_{\mathrm{segregate}} &= (w_A(t) A) + (w_{SN}(t) SN_{\mathrm{local}}) \\
+    &\quad + (w_{PBC}(t) PBC_{\mathrm{infra}}) - C_{\mathrm{Net}} + \epsilon
+\end{split}
+\label{eq:utility_function}
+\end{equation}
+
+In this formulation, $w_A(t)$ represents the temporal evolution of the agent's internal valuation of segregation, functioning as a decay model that increases in response to Information, Education, and Communication (IEC) investment and decays stochastically in the absence of reinforcement to simulate ``public forgetting'' \cite{Trushna2024}. The social component, $SN_{\mathrm{local}}$, is an endogenous variable derived from the observed compliance rate of the agent's immediate spatial neighborhood (radius $r$), capturing the effects of social pressure and observational learning \cite{Meng2018, Liao2024}. To account for the inherent uncertainty in human decision-making, the term $\epsilon$ introduces stochastic noise, ensuring the model reflects real-world behavioral variance \cite{Subedi2025}.
+
+A critical innovation in this model is the calculation of $C_{\mathrm{Net}}$, the net behavioral cost, which characterizes the perceived friction of compliance. This variable is defined as:
+
+\begin{equation}
+    C_{\mathrm{Net}} = C_{\mathrm{Effort}} + (\gamma C_{\mathrm{Monetary}}) - (\gamma I) - (\gamma F P_{\mathrm{Detection}})
+    \label{eq:net_disutility}
+\end{equation}
+
+\noindent This cost-benefit sub-model integrates both physical and financial barriers, defined as follows:
+
+\begin{itemize}
+    \item[] $\bm{C_{\mathrm{Effort}}}$: The physical hassle associated with the washing, sorting, and storage of waste.
+    \item[] $\bm{C_{\mathrm{Monetary}}}$: Tangible financial expenses, such as the procurement of color-coded bins or sacks.
+    \item[] $\bm{\gamma}$ \textit{(Income Sensitivity)}: A weighting factor derived from household income level; for lower-income households, $\gamma > 1$ as financial levers ($I$ and $F$) carry greater psychological weight, whereas $\gamma < 1$ for higher-income households.
+    \item[] $\bm{I}$ \textit{and} $\bm{F}$: The objective magnitudes of monetary incentives and punitive fines, respectively.
+    \item[] $\bm{P_{\mathrm{Detection}}}$: The likelihood of enforcement detection, which is dynamically linked to the LGU's resource allocation for enforcement personnel.
+\end{itemize}
+
+Furthermore, the model captures complex psychological feedbacks such as ``psychological reactance.'' While LGU investments in IEC campaigns generally improve Attitude ($A$) and Subjective Norms ($SN$) \cite{Trushna2024}, the model stipulates that if enforcement intensity crosses a specific threshold, Attitude ($A$) may paradoxically decrease. This inverse reaction reflects the tendency of individuals to resist coercive mandates when they perceive a loss of autonomy, a concept central to Nudge Theory applications in waste management \cite{LoanBalanay2023}. Finally, Perceived Behavioral Control ($PBC$) is calibrated by the availability of barangay-level infrastructure, ensuring the simulation acknowledges that even highly motivated agents may fail to comply if functional bins or Materials Recovery Facilities (MRFs) are absent.
+
+\subsection{Behavioral Hysteresis and the Internalization of Social Norms}
+
+While the baseline \texttt{HouseholdAgent} architecture operates on the Theory of Planned Behavior (TPB), standard models often exhibit unrealistic behavioral decay where compliance collapses immediately upon the cessation of external stimuli. To more accurately simulate the real-world stability of established habits, this study incorporates a \textit{Norm Internalization Mechanism}. This mechanism addresses the phenomenon of ``Cultural Inertia,'' where a behavior transitions from a calculated, incentive-driven decision to an internalized social habit once a critical tipping point is reached \cite{Ceschi2021, Corcoran2020}.
+
+In this framework, the standard attitude update function, which typically suffers from a decay constant ($\delta$) due to enforcement fatigue or apathy, is refined by a dynamic damping factor ($D_{\mathrm{factor}}$). This modification aligns with recent findings on the persistence of pro-environmental behavior, suggesting that established social norms act as a buffer against the rapid erosion of compliance \cite{Andre2021}:
+
+\begin{equation}
+    A_{t+1} = A_t - (\delta \times D_{\mathrm{factor}})
+\end{equation}
+
+The damping factor is governed by the strength of local social norms ($SN$), representing the protective effect of community-wide compliance. Specifically, the model identifies a \textit{tipping point at 70\% compliance}, beyond which the behavior is considered internalized. This threshold reflects the ``critical mass'' theory in social dynamics, where minority behaviors cascade into majority conventions once a specific saturation point is exceeded \cite{Centola2018, Nyborg2024}:
+
+\begin{equation}
+    D_{\mathrm{factor}} = 
+    \begin{cases} 
+        0.1 & \text{if } SN > 0.70 \text{ (Strong Norms / Internalized)} \\
+        0.5 & \text{if } SN > 0.50 \text{ (Moderate Norms)} \\
+        1.0 & \text{otherwise (Weak Norms)}
+    \end{cases}
+\end{equation}
+
+Furthermore, to prevent the total erosion of community standards during periods of fiscal austerity or low LGU intervention, the model introduces a \textit{Social Norm Floor set at 40\%}. This floor ensures that once a barangay has achieved a baseline level of awareness, the perceived social pressure does not drop to zero, representing the residual collective memory and existing communal infrastructure of the municipality \cite{Nishimura2022}. This refinement is critical for addressing the sustainability objectives of this research, as it allows the Deep Reinforcement Learning agent to discover strategies that foster self-sustaining compliance rather than perpetual reliance on high-cost monetary incentives .
+
+\subsection{Multi-Objective Heuristic Reward Function}
+
+The Local Government Unit (LGU) agent's learning behavior is guided by a Composite Reward Function designed to optimize environmental policy while strictly managing fiscal limitations and social acceptability. To accelerate the agent's training, the model employs Reward Shaping to provide immediate, dense feedback.
+
+The total reward at each time step ($t$) is calculated as:
+\begin{equation}
+    R_{\mathrm{total}} = w_1 R_{\mathrm{Comp}} + w_2 R_{\mathrm{Sustain}} - w_3 P_{\mathrm{Backlash}} + R_{\mathrm{Shaping}}
+    \label{eq:total_reward_summary}
+\end{equation}
+
+This function balances four distinct operational components:
+
+\begin{itemize}
+    \item \textit{Environmental Compliance ($R_{\mathrm{Comp}}$):} The primary objective, measured by the population-weighted waste segregation rate across all barangays.
+    
+    \item \textit{Fiscal Sustainability ($R_{\mathrm{Sustain}}$):} A regularization term that prevents premature budget exhaustion by penalizing deviations from a steady, ideal spending rate:
+    \begin{equation}
+        R_{\mathrm{Sustain}} = - \left| \frac{S_{\mathrm{Actual}}}{B_{\mathrm{Total}}} - \frac{1}{12} \right|
+        \label{eq:fiscal_sustainability}
+    \end{equation}
+    
+    \item \textit{Political Backlash Penalty ($P_{\mathrm{Backlash}}$):} A penalty applied when strict enforcement is paired with low public compliance, discouraging draconian policies that could trigger social resistance.
+    
+    \item \textit{Heuristic Shaping Rewards ($R_{\mathrm{Shaping}}$):} Targeted training bonuses designed to guide the agent out of sub-optimal strategies and toward a ``Sequential Saturation'' approach. This includes an Allocation Focus Bonus for directing $>40\%$ of the budget to a critical, underperforming barangay, and an Intensity Threshold Jackpot ($+20,000$) for pushing local enforcement intensity beyond a critical $0.80$ threshold.
+\end{itemize}
+
+Finally, the function's weights ($w_1, w_2, w_3$) calibrate these competing objectives to accurately mirror the real-world constraints of a 4th Class Municipality, ensuring the AI's solutions are practically viable.
+
+\subsection{Heuristic-Guided Deep Reinforcement Learning (HuDRL)}
+
+To overcome the ``Sparse Reward Problem'' inherent in high-dimensional municipal resource allocation ($d=21$), this study implements a Heuristic-Guided Deep Reinforcement Learning (HuDRL) framework utilizing Deep Proximal Policy Optimization (Deep PPO). The agent employs a custom Actor-Critic architecture where two deep neural networks (64-neuron dense layers with ReLU activation) process a multi-modal State Vector ($S_t$) comprising barangay compliance rates, fiscal liquidity, and political capital. To strictly enforce the municipality's fiscal constraints, the Actor network utilizes a Softmax Normalization Layer, mathematically guaranteeing that the continuous action vector ($A_t$)—representing allocations for IEC, Enforcement, and Incentives—never exceeds the quarterly budget cap ($B_{\mathrm{Quarterly}}$).
+
+Crucially, the framework integrates ``Reward Shaping'' to guide the agent away from sub-optimal, equitable distributions (the ``Status Quo'' trap) and toward a ``Sequential Saturation'' strategy. The Composite Reward Function ($R_{\mathrm{total}}$) balances environmental compliance against fiscal sustainability and political backlash, while adding heuristic bonuses ($+20,000$) when the agent concentrates $>40\%$ of resources on the weakest performing barangay. This logic is operationalized in the HuDRL Algorithm (Algorithm \ref{alg:hudrl}), which utilizes a ``Targeted Amplification'' mechanism to act as a saliency filter, multiplying intent signals to critical nodes by a factor of $\alpha=100$ to accelerate the discovery of optimal tipping points.
+
+\begin{algorithm}[!t]
+\caption{Heuristic-Guided Action Selection \& Reward Shaping (HuDRL)}
+\label{alg:hudrl}
+\begin{algorithmic}[1]
+\STATE \textit{Input:} $S_t$ (State Vector), $\mathcal{B}_{\mathrm{list}}$ (Barangay Agents), $B_{\mathrm{cap}}$ (Quarterly Budget)
+\STATE \textit{Output:} $A_{\mathrm{final}}$ (Optimized Budget Allocation)
+\STATE \textit{Step 1: Observation}
+\STATE $S_t \gets \text{GetCurrentState}()$
+\STATE \textit{Step 2: Identify Critical Node}
+\STATE $B_{\mathrm{crit}} \gets \min_{b \in \mathcal{B}_{\mathrm{list}}} (b.\text{compliance\_rate})$ \COMMENT{Identify weakest performing barangay}
+\STATE \textit{Step 3: Initial Policy Prediction}
+\STATE $A_{\mathrm{raw}} \gets \pi_\theta(S_t)$ \COMMENT{Neural Network prediction}
+\STATE \textit{Step 4: Heuristic Targeted Amplification}
+\IF{$A_{\mathrm{raw}}[B_{\mathrm{crit}}] > \delta_{\mathrm{intent}}$}
+    \STATE $A_{\mathrm{raw}}[B_{\mathrm{crit}}] \gets A_{\mathrm{raw}}[B_{\mathrm{crit}}] \times \alpha$ \COMMENT{Amplify signal (e.g., alpha=100)}
+    \STATE Decrease other allocations to balance
+\ENDIF
+\STATE \textit{Step 5: Budget Normalization (Softmax-style)}
+\STATE $A_{\mathrm{final}} \gets \text{Softmax}(A_{\mathrm{raw}}) \times B_{\mathrm{cap}}$
+\STATE \textit{Step 6: Execution}
+\STATE Apply $A_{\mathrm{final}}$ to ABM Environment
+\STATE \textit{Step 7: Reward Shaping}
+\STATE $R_{\mathrm{total}} \gets R_{\mathrm{base}} + R_{\mathrm{bonus}}$ \COMMENT{Includes Jackpot for Saturation Strategy}
+\STATE \textit{Step 8: Network Update}
+\STATE PPO.Update($S_t$, $A_{\mathrm{final}}$, $R_{\mathrm{total}}$)
+\end{algorithmic}
+\end{algorithm}
+
+\subsection{Simulation and Analysis}
+
+This study employed a four-stage experimental design to evaluate the ABM-RL framework. First, \textit{Initialization and Calibration} grounded the model in operational data from seven barangays, matching the municipality's $\approx 10\%$ baseline compliance \cite{Villanueva2021, Jimenez2025}. Second, the HuDRL agent trained over 10,000 simulated periods to explore the policy space \cite{Dey2025}. Third, we simulated three \textit{Policy Scenarios}—\textit{Pure Penalty}, \textit{Pure Incentive}, and an AI-optimized \textit{Hybrid Regime} \cite{TianReview2024}—evaluating them on maximum compliance, cost-effectiveness, policy equity, and resource allocation. Finally, a Sobol \textit{Global Sensitivity Analysis} \cite{Sobol2001} validated model robustness by stress-testing core behavioral parameters ($w_a, w_{sn}, c_{effort}$).
+

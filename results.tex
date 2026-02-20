@@ -1,3 +1,5 @@
+%!TEX root = ../cs_conference_paper.tex
+
 \subsection{Data and Input Parameters Analysis}
 
 The validity of the Agent-Based Model (ABM) was established through empirical grounding of initialization parameters derived from legislative documents, interviews, and municipal financial data. The environment was bounded by an Annual Budget Cap of P1,500,000 (approx. P375,000 per quarter), a constraint creating a ``Personnel Trap'' where enforcement costs frequently crowded out education and incentives.
@@ -83,7 +85,7 @@ Calibration aligned the simulation with MENRO audit data, reconciling discrepanc
 
 \subsection{Comparative Results of Policy Strategies}
 
-Simulation experiments showed a stark divergence between equal-distribution strategies and AI-driven dynamic allocation. Without ``Sequential Saturation,'' static rebalancing was insufficient to resolve non-compliance.
+Simulation experiments showed a stark divergence between equal-distribution strategies and DRL-driven dynamic allocation. Without ``Sequential Saturation,'' static rebalancing was insufficient to resolve non-compliance.
 
 \begin{figure}[htbp]
     \centering
@@ -92,7 +94,7 @@ Simulation experiments showed a stark divergence between equal-distribution stra
     \label{fig:baseline_graph}
 \end{figure}
 
-The \textbf{Status Quo} strategy distributed funds equally (P53,571/barangay), acting as a ``dilution mechanism.'' Small communities like Mati achieved compliance via social momentum, but critical zones like Poblacion stagnated at 0.33\%.
+The \textit{Status Quo} strategy distributed funds equally (P53,571/barangay), acting as a ``dilution mechanism.'' Small communities like Mati achieved compliance via social momentum, but critical zones like Poblacion stagnated at 0.33\%.
 
 \begin{figure}[htbp]
     \centering
@@ -101,7 +103,7 @@ The \textbf{Status Quo} strategy distributed funds equally (P53,571/barangay), a
     \label{fig:ppo_result_graph}
 \end{figure}
 
-The \textbf{HuDRL} agent outperformed all manual strategies, achieving \textbf{92.8\%} terminal compliance. The AI discovered \textbf{Sequential Saturation}, concentrating 51\%--69\% of the total municipal budget on single barangays sequentially (e.g., Demologan in Q2, Poblacion in Q8-12). This ensured intervention intensity exceeded resistance thresholds, prioritizing sequential efficacy over simultaneous fairness.
+The \textit{HuDRL} agent outperformed all manual strategies, achieving \textit{92.8\%} terminal compliance. The AI discovered \textit{Sequential Saturation}, concentrating 51\%--69\% of the total municipal budget on single barangays sequentially (e.g., Demologan in Q2, Poblacion in Q8-12). This ensured intervention intensity exceeded resistance thresholds, prioritizing sequential efficacy over simultaneous fairness.
 
 \begin{table}[htbp]
     \centering
@@ -111,19 +113,19 @@ The \textbf{HuDRL} agent outperformed all manual strategies, achieving \textbf{9
     \footnotesize
     \begin{tabular}{l c c c c}
         \toprule
-        \textbf{Policy Regime} & \textbf{Q1} & \textbf{Q4} & \textbf{Q8} & \textbf{Q12} \\
+        Policy Regime & Q1 & Q4 & Q8 & Q12 \\
         \midrule
         Status Quo (Baseline) & 10.7\% & 52.4\% & 55.3\% & 57.1\% \\
         Pure Incentives       & 10.7\% & 34.6\% & 34.2\% & 34.3\% \\
         Pure Enforcement      & 10.7\% & 14.9\% & 14.0\% & 13.9\% \\
-        \textbf{Adaptive (HuDRL)} & \textbf{10.7\%} & \textbf{45.3\%} & \textbf{72.2\%} & \textbf{92.8\%} \\
+        \textit{Adaptive (HuDRL)} & \textit{10.7\%} & \textit{45.3\%} & \textit{72.2\%} & \textit{92.8\%} \\
         \bottomrule
     \end{tabular}
 \end{table}
 
 \subsection{Global Sensitivity Analysis}
 
-A Sobol Global Sensitivity Analysis (GSA) revealed the \textbf{Cost of Effort ($c_{\text{effort}}$)} as the primary driver, accounting for \textbf{83\%} of variance. This provides evidence for the ``Convenience Hypothesis,'' where structural deficiencies override awareness. \textbf{Social Norms ($w_{sn}$)} acted as a force multiplier, while \textbf{Attitude ($w_a$)} showed near-zero sensitivity, quantifying the ``Value-Action Gap'' where awareness alone fails without structural support.
+A Sobol Global Sensitivity Analysis (GSA) revealed the \textit{Cost of Effort ($c_{\text{effort}}$)} as the primary driver, accounting for \textit{83\%} of variance. This provides evidence for the ``Convenience Hypothesis,'' where structural deficiencies override awareness. \textit{Social Norms ($w_{sn}$)} acted as a force multiplier, while \textit{Attitude ($w_a$)} showed near-zero sensitivity, quantifying the ``Value-Action Gap'' where awareness alone fails without structural support.
 
 \begin{figure}[htbp]
     \centering
