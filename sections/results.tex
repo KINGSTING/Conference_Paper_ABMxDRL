@@ -1,0 +1,135 @@
+%!TEX root = ../cs_conference_paper.tex
+
+\subsection{Data and Input Parameters Analysis}
+
+The validity of the Agent-Based Model (ABM) was established through empirical grounding of initialization parameters derived from legislative documents, interviews, and municipal financial data. The environment was bounded by an Annual Budget Cap of P1,500,000 (approx. P375,000 per quarter), a constraint creating a ``Personnel Trap'' where enforcement costs frequently crowded out education and incentives.
+
+As detailed in Table \ref{tab:barangay_demographics}, profound heterogeneity prevented a ``one-size-fits-all'' policy. Brgy. Poblacion (the ``Urban Resource Trap'') possessed the largest budget (P200,000) but the lowest per-capita spending power, necessitating a 60\% legislative lock on enforcement. Brgy. Binuni represented a ``Wealthy Anomaly,'' while Babalaya and Demologan exemplified the ``Poverty Trap,'' with 90\% of funds consumed by mandatory personnel costs.
+
+\begin{table}[htbp]
+    \centering
+    \caption{Barangay Demographic and Financial Parameters}
+    \label{tab:barangay_demographics}
+    \setlength{\tabcolsep}{3pt} % Reduce horizontal gap
+    \renewcommand{\arraystretch}{0.95} % Slightly tighter rows
+    \footnotesize % Smaller font for fit
+    \begin{tabular}{l r r c c c c}
+        \toprule
+        & & {Annual} & {Initial} & \multicolumn{3}{c}{{Income Profile (\%)}} \\
+        \cmidrule(lr){5-7}
+        {Barangay} & {Households} & {Budget (P)} & {Comp.} & {Low} & {Mid} & {High} \\
+        \midrule
+        Poblacion    & 1,534 & 200,000 & 2\%  & 70 & 25 & 5 \\
+        Liangan East & 608   & 30,000  & 14\% & 40 & 40 & 20 \\
+        Ezperanza    & 574   & 90,000  & 14\% & 20 & 50 & 30 \\
+        Binuni       & 507   & 126,370 & 15\% & 50 & 30 & 20 \\
+        Demologan    & 463   & 21,000  & 11\% & 80 & 15 & 5 \\
+        Babalaya     & 171   & 15,000  & 14\% & 80 & 10 & 10 \\
+        Mati         & 165   & 80,000  & 11\% & 90 & 5  & 5 \\
+        \bottomrule
+    \end{tabular}
+    \vspace{1ex}
+\end{table}
+
+The simulation incorporated distinct psychosocial profiles (Table \ref{tab:behavioral_parameters}). Agrarian and commercial center disparities altered the marginal utility of money; low-income concentrations in Mati and Demologan resulted in high price sensitivity ($\gamma$), making uniform fines regressive.
+
+\begin{table}[htbp]
+    \centering
+    \caption{Calibrated Behavioral and Allocation Profiles}
+    \label{tab:behavioral_parameters}
+    \setlength{\tabcolsep}{5pt}
+    \renewcommand{\arraystretch}{0.9}
+    \footnotesize
+    \begin{tabular}{l c c c c c c c c}
+        \toprule
+        & \multicolumn{4}{c}{{Agent Parameters}} & & \multicolumn{3}{c}{{Allocation (\%)}} \\
+        \cmidrule(lr){2-5} \cmidrule(lr){7-9}
+        {Barangay} & {$w_a$} & {$w_{sn}$} & {$C_e$} & {$\gamma$} & & {Enf} & {Inc} & {IEC} \\
+        \midrule
+        Binuni       & 0.65 & 0.80 & 0.64 & 0.02 & & 40 & 40 & 20 \\
+        Ezperanza    & 0.40 & 0.70 & 0.55 & 0.03 & & 50 & 30 & 20 \\
+        Babalaya     & 0.60 & 0.90 & 0.62 & 0.05 & & 90 & 5  & 5 \\
+        Liangan East & 0.65 & 0.60 & 0.58 & 0.04 & & 25 & 65 & 10 \\
+        Poblacion    & 0.55 & 0.20 & 0.48 & 0.03 & & 60 & 20 & 20 \\
+        Demologan    & 0.60 & 0.60 & 0.62 & 0.05 & & 85 & 10 & 5 \\
+        Mati         & 0.60 & 0.50 & 0.60 & 0.05 & & 30 & 50 & 20 \\
+        \bottomrule
+    \end{tabular}
+    \vspace{1ex}
+\end{table}
+
+\subsection{Model Calibration and Data Reconciliation}
+
+Calibration aligned the simulation with MENRO audit data, reconciling discrepancies between micro-level reports and macro-level reality. While interviews suggested 40--50\% compliance, audits confirmed only 10--15\%. This ``Act vs. Reality'' gap highlighted social desirability bias. The model utilized Brgy. Poblacion (2\%) as an accurate ``Anchor Point'' to establish a valid Status Quo baseline ($\approx$12.5\%).
+
+\begin{table}[htbp]
+    \centering
+    \caption{Compliance Calibration ($S_0$)}
+    \label{tab:calibration_data}
+    \setlength{\tabcolsep}{5pt}
+    \footnotesize
+    \begin{tabular}{l c c}
+        \toprule
+        {Barangay} & {Acquired (Interview)} & {Calibrated $S_0$ (Audit)} \\
+        \midrule
+        Babalaya     & 100\% & 14\% \\
+        Binuni       & 95\%  & 15\% \\
+        Mati         & 70\%  & 11\% \\
+        Liangan East & 65\%  & 14\% \\
+        Demologan    & 60\%  & 11\% \\
+        Ezperanza    & 20\%  & 14\% \\
+        Poblacion    & 2\%   & 2\%  \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+\subsection{Comparative Results of Policy Strategies}
+
+Simulation experiments showed a stark divergence between equal-distribution strategies and DRL-driven dynamic allocation. Without ``Sequential Saturation,'' static rebalancing was insufficient to resolve non-compliance.
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.48\textwidth]{images/Baseline.jpg}
+    \caption{Baseline Status Quo}
+    \label{fig:baseline_graph}
+\end{figure}
+
+The \textit{Status Quo} strategy distributed funds equally (P53,571/barangay), acting as a ``dilution mechanism.'' Small communities like Mati achieved compliance via social momentum, but critical zones like Poblacion stagnated at 0.33\%.
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.48\textwidth]{images/ppo_result.png}
+    \caption{Heuristic-Guided Deep Reinforcement Learning Approach}
+    \label{fig:ppo_result_graph}
+\end{figure}
+
+The \textit{HuDRL} agent outperformed all manual strategies, achieving \textit{92.8\%} terminal compliance. The AI discovered \textit{Sequential Saturation}, concentrating 51\%--69\% of the total municipal budget on single barangays sequentially (e.g., Demologan in Q2, Poblacion in Q8-12). This ensured intervention intensity exceeded resistance thresholds, prioritizing sequential efficacy over simultaneous fairness.
+
+\begin{table}[htbp]
+    \centering
+    \caption{Global Compliance across Regimes ($Q_1$ - $Q_{12}$)}
+    \label{tab:policy_comparison}
+    \setlength{\tabcolsep}{7pt}
+    \footnotesize
+    \begin{tabular}{l c c c c}
+        \toprule
+        Policy Regime & Q1 & Q4 & Q8 & Q12 \\
+        \midrule
+        Status Quo (Baseline) & 10.7\% & 52.4\% & 55.3\% & 57.1\% \\
+        Pure Incentives       & 10.7\% & 34.6\% & 34.2\% & 34.3\% \\
+        Pure Enforcement      & 10.7\% & 14.9\% & 14.0\% & 13.9\% \\
+        \textit{Adaptive (HuDRL)} & \textit{10.7\%} & \textit{45.3\%} & \textit{72.2\%} & \textit{92.8\%} \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+\subsection{Global Sensitivity Analysis}
+
+A Sobol Global Sensitivity Analysis (GSA) revealed the \textit{Cost of Effort ($c_{\text{effort}}$)} as the primary driver, accounting for \textit{83\%} of variance. This provides evidence for the ``Convenience Hypothesis,'' where structural deficiencies override awareness. \textit{Social Norms ($w_{sn}$)} acted as a force multiplier, while \textit{Attitude ($w_a$)} showed near-zero sensitivity, quantifying the ``Value-Action Gap'' where awareness alone fails without structural support.
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.48\textwidth]{images/Sobol.png}
+    \caption{Global Sensitivity Analysis Results illustrating First-Order Sobol Indices ($S_1$) and Total Order Indices ($ST$) for behavioral parameters.}
+    \label{fig:sobol_analysis}
+\end{figure}

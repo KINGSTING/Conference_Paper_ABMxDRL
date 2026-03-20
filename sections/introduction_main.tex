@@ -1,0 +1,46 @@
+%!TEX root = ../cs_conference_paper.tex
+
+The implementation of the Ecological Solid Waste Management Act (R.A. 9003) in the Philippines has faced significant hurdles at the local government level, particularly in achieving consistent household segregation compliance. While the law mandates a decentralized approach through barangay-level management, many municipalities continue to struggle with high waste generation and low participation rates. Traditional governance strategies often rely on static, linear policy models that fail to account for the complex, adaptive nature of human behavior and the socio-economic heterogeneity of local communities. This research proposes a computational shift toward smart governance by leveraging Agent-Based Modeling (ABM) and Deep Reinforcement Learning (DRL) to simulate and optimize policy interventions specifically tailored for the Municipality of Bacolod, Lanao del Norte.
+
+\subsection{Statement of the Problem}
+The study aims to find the most cost-effective way for the Municipality of Bacolod to allocate its limited budget across three solid waste management strategies—rewards, punishments, and educational campaigns—to achieve the highest long-term compliance in household waste segregation.
+
+\noindent This study answered the following specific questions:
+
+\begin{enumerate}
+
+    \item How do variations in synthesized behavioral parameters influence policy efficacy and stability within the simulated environment?
+    \item What is the optimal mathematical allocation ratio among incentives, enforcement, and education to maximize cost-effectiveness?
+    \item Which dynamic policy combination yields the highest aggregate compliance and optimal cost-benefit ratio while strictly adhering to the municipality's annual fiscal constraints?
+
+\end{enumerate}
+
+\subsection{Research Objectives}
+
+The primary objective of this study is to develop a coupled Agent-Based Model (ABM) and Heuristic-Guided Deep Reinforcement Learning (HuDRL) framework to optimize budget-constrained resource allocation, maximizing household solid waste segregation compliance in the Municipality of Bacolod.
+
+\noindent Specifically, the study aims:
+
+\begin{enumerate}
+
+    \item To parameterize the ABM using synthesized academic literature, municipal financial data, and key-informant interviews.
+    \item To construct a Multi-Level ABM where household behavior is governed by the Theory of Planned Behavior and dynamically responds to local policy interventions.
+    \item To integrate a DRL algorithm that enables the municipal agent to autonomously learn optimal fund allocations across incentives, enforcement, and education under strict budget limits.
+    \item To evaluate the cost-effectiveness of isolated (Pure Incentive, Pure Penalty, Pure Education) and Hybrid policy regimes, providing data-driven recommendations for enforcing RA 9003.
+
+\end{enumerate}
+
+\subsection{Significance of the Study}
+This research contributes to the interdisciplinary fields of environmental science and computational social science by advancing the integration of the Theory of Planned Behavior (TPB) with Deep Reinforcement Learning (DRL) \cite{TianReview2024}. Academically, it demonstrates the utility of Deep Neural Networks (DNNs) in processing high-dimensional state spaces—specifically varying compliance rates across seven heterogeneous barangays—to discover adaptive policy strategies that traditional linear programming fails to capture \cite{Dey2025, HaMinh2025}. 
+
+Practically, the study provides Local Government Units (LGUs) with a low-risk, data-driven decision-support tool to test policy mixes (incentives vs. enforcement) without the costs of real-world trials. On a national level, the successful implementation of these recommendations supports environmental sustainability and climate mitigation goals by improving waste segregation at the source, thereby promoting a circular economy and reducing landfill methane emissions.
+
+\subsection{Scope and Limitations}
+The study is geographically bounded to the seven coastal and urban barangays of the Municipality of Bacolod, Lanao del Norte, currently served by the municipal collection system. The remaining nine barangays are excluded due to logistical inaccessibility. 
+
+The scope is strictly focused on household-level segregation and the executive implementation of existing legislation (Municipal Ordinance No. 2018-05), rather than the drafting of new laws. While the model utilizes high-fidelity proxy data for behavioral weights \cite{Paigalan2025} and primary qualitative data from Key Informant Interviews (KIIs) with MENRO and local officials, it remains an abstraction of reality. Specific limitations include:
+\begin{itemize}
+    \item The model excludes downstream operations such as landfill management and collection routing.
+    \item Micro-level agent values are derived from a meta-analysis of regional empirical data rather than primary household surveys.
+    \item The simulation assumes honest interactions and excludes informal bypass mechanisms, such as tipping collectors to accept unsegregated waste, to focus on official policy optimization.
+\end{itemize}

@@ -41,6 +41,7 @@ Through 10,000 simulated periods, our experiments yielded the following insights
 ├── notebooks/             # Jupyter notebooks containing Sobol Sensitivity Analysis and data visualization
 ├── paper/                 # LaTeX source files, compiled PDF, and references (.bib)
 └── README.md
+```text
 
 ## 🤝 Acknowledgments
 The authors thank the Bacolod LGU and its component barangays for their support and data.
