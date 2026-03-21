@@ -1,10 +1,10 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.12.28)  20 MAR 2026 23:53
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.12.28)  21 MAR 2026 13:30
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**"c:/Users/Jemar John/Desktop/CS_Thesis/Conference_Paper/abm-drl_conference.tex"
-(c:/Users/Jemar John/Desktop/CS_Thesis/Conference_Paper/abm-drl_conference.tex
+**"c:/Users/Jemar John/Desktop/CS_Thesis/Conference_Paper/conference_paper_abm-drl.tex"
+(c:/Users/Jemar John/Desktop/CS_Thesis/Conference_Paper/conference_paper_abm-drl.tex
 LaTeX2e <2025-11-01>
 L3 programming layer <2025-12-24>
 (C:\Users\Jemar John\AppData\Local\Programs\MiKTeX\tex/latex/ieeetran\IEEEtran.cls
@@ -264,23 +264,23 @@ Package: float 2001/11/08 v1.3d Float enhancements (AL)
 ) (C:\Users\Jemar John\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3backend-pdftex.def
 File: l3backend-pdftex.def 2025-10-09 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count312
-) (abm-drl_conference.aux)
-\openout1 = `abm-drl_conference.aux'.
+) (conference_paper_abm-drl.aux)
+\openout1 = `conference_paper_abm-drl.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 15.
-LaTeX Font Info:    ... okay on input line 15.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 15.
-LaTeX Font Info:    ... okay on input line 15.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 15.
-LaTeX Font Info:    ... okay on input line 15.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 15.
-LaTeX Font Info:    ... okay on input line 15.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 15.
-LaTeX Font Info:    ... okay on input line 15.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 15.
-LaTeX Font Info:    ... okay on input line 15.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 15.
-LaTeX Font Info:    ... okay on input line 15.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 16.
+LaTeX Font Info:    ... okay on input line 16.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 16.
+LaTeX Font Info:    ... okay on input line 16.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 16.
+LaTeX Font Info:    ... okay on input line 16.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 16.
+LaTeX Font Info:    ... okay on input line 16.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 16.
+LaTeX Font Info:    ... okay on input line 16.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 16.
+LaTeX Font Info:    ... okay on input line 16.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 16.
+LaTeX Font Info:    ... okay on input line 16.
 
 -- Lines per column: 56 (exact).
 (C:\Users\Jemar John\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.mkii
@@ -302,19 +302,23 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 48
  (C:\Users\Jemar John\AppData\Local\Programs\MiKTeX\tex/latex/00miktex\epstopdf-sys.cfg
 File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
 ))
-LaTeX Font Info:    Calculating math sizes for size <11> on input line 42.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 42.
+LaTeX Font Info:    Calculating math sizes for size <11> on input line 43.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 43.
  (C:\Users\Jemar John\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 42.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 43.
  (C:\Users\Jemar John\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) [1{C:/Users/Jemar John/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}{C:/Users/Jemar John/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/base/8r.enc}
 
 
 ]
-Underfull \hbox (badness 1810) in paragraph at lines 77--78
+LaTeX Info: Symbol \textpeso not provided by
+            font family ptm in TS1 encoding.
+            Default family used instead on input line 78.
+
+Underfull \hbox (badness 1810) in paragraph at lines 78--79
 \OT1/ptm/m/n/10 a three-phase de-sign: pa-ram-e-ter-i-za-tion, DRL in-te-gra-tion,
  []
 
@@ -322,40 +326,35 @@ Underfull \hbox (badness 1810) in paragraph at lines 77--78
 File: images/simul_gym.png Graphic file (type png)
 <use images/simul_gym.png>
 Package pdftex.def Info: images/simul_gym.png  used on input line 82.
-(pdftex.def)             Requested size: 252.0pt x 137.43498pt.
-
-Underfull \hbox (badness 1400) in paragraph at lines 98--99
- \OT1/ptm/m/it/10 1) House-hold Agents: [][] \OT1/ptm/m/n/10 House-hold agents are the core
- []
-
-
-Overfull \hbox (11.33688pt too wide) detected at line 101
-[]\OML/cmm/m/it/10 U[] \OT1/cmr/m/n/10 = (\OML/cmm/m/it/10 w[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 t\OT1/cmr/m/n/10 )\OML/cmm/m/it/10 A\OT1/cmr/m/n/10 ) + (\OML/cmm/m/it/10 w[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 t\OT1/cmr/m/n/10 )\OML/cmm/m/it/10 SN[]\OT1/cmr/m/n/10 ) + (\OML/cmm/m/it/10 w[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 t\OT1/cmr/m/n/10 )\OML/cmm/m/it/10 PBC\OT1/cmr/m/n/10 ) \OMS/cmsy/m/n/10 ^^@ \OML/cmm/m/it/10 C[] \OT1/cmr/m/n/10 + \OML/cmm/m/it/10 ^^O
- []
-
+(pdftex.def)             Requested size: 214.20154pt x 116.8268pt.
 [2 <./images/simul_gym.png>]
-LaTeX Font Info:    Trying to load font information for OMS+ptm on input line 132.
- (C:\Users\Jemar John\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\omsptm.fd
-File: omsptm.fd 
-)
-LaTeX Font Info:    Font shape `OMS/ptm/m/n' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 132.
-<images/Sobol.png, id=20, 722.7pt x 433.62pt>
+LaTeX Info: Symbol \textpeso not provided by
+            font family ptm in TS1 encoding.
+            Default family used instead on input line 160.
+ [3]
+LaTeX Info: Symbol \textpeso not provided by
+            font family ptm in TS1 encoding.
+            Default family used instead on input line 221.
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+<images/Sobol.png, id=26, 722.7pt x 433.62pt>
 File: images/Sobol.png Graphic file (type png)
 <use images/Sobol.png>
-Package pdftex.def Info: images/Sobol.png  used on input line 174.
-(pdftex.def)             Requested size: 252.0pt x 151.20026pt.
-<images/Baseline.png, id=21, 3083.52pt x 1349.04pt>
-File: images/Baseline.png Graphic file (type png)
-<use images/Baseline.png>
-Package pdftex.def Info: images/Baseline.png  used on input line 185.
-(pdftex.def)             Requested size: 252.0pt x 110.23088pt.
-<images/ppo_result.png, id=22, 3175.865pt x 1349.04pt>
-File: images/ppo_result.png Graphic file (type png)
-<use images/ppo_result.png>
-Package pdftex.def Info: images/ppo_result.png  used on input line 195.
-(pdftex.def)             Requested size: 252.0pt x 107.04025pt.
- [3 <./images/Sobol.png> <./images/Baseline.png>]
+Package pdftex.def Info: images/Sobol.png  used on input line 235.
+(pdftex.def)             Requested size: 214.20154pt x 128.51889pt.
+ [4 <./images/Sobol.png>]
+<images/hudrl_vs_vanilla.png, id=35, 715.473pt x 431.211pt>
+File: images/hudrl_vs_vanilla.png Graphic file (type png)
+<use images/hudrl_vs_vanilla.png>
+Package pdftex.def Info: images/hudrl_vs_vanilla.png  used on input line 250.
+(pdftex.def)             Requested size: 214.20154pt x 129.09453pt.
+<images/comparison_policy_strategy.png, id=36, 1081.79156pt x 813.0375pt>
+File: images/comparison_policy_strategy.png Graphic file (type png)
+<use images/comparison_policy_strategy.png>
+Package pdftex.def Info: images/comparison_policy_strategy.png  used on input line 261.
+(pdftex.def)             Requested size: 214.20154pt x 160.97943pt.
+ [5 <./images/hudrl_vs_vanilla.png> <./images/comparison_policy_strategy.png>]
 
 ** Conference Paper **
 Before submitting the final camera ready copy, remember to:
@@ -367,8 +366,26 @@ Before submitting the final camera ready copy, remember to:
  uses only Type 1 fonts and that every step in the generation
  process uses the appropriate paper size.
 
-[4
+[6
 
- <./images/ppo_result.png>
-!pdfTeX error: pdflatex: fflush() failed (Invalid argument)
- ==> Fatal error occurred, no output PDF file produced!
+] (conference_paper_abm-drl.aux)
+ ***********
+LaTeX2e <2025-11-01>
+L3 programming layer <2025-12-24>
+ ***********
+ ) 
+Here is how much of TeX's memory you used:
+ 4507 strings out of 467871
+ 72575 string characters out of 5415919
+ 496245 words of memory out of 5000000
+ 33333 multiletter control sequences out of 15000+600000
+ 672367 words of font info for 130 fonts, out of 8000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 57i,15n,65p,1597b,479s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ <C:\Users\Jemar John\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrb0800.pk> <C:\Users\Jemar John\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1000.pk><C:/Users/Jemar John/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/Jemar John/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/Jemar John/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Users/Jemar John/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/Jemar John/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/Jemar John/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/Jemar John/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/Jemar John/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/Jemar John/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/Jemar John/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Users/Jemar John/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmb8a.pfb><C:/Users/Jemar John/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmbi8a.pfb><C:/Users/Jemar John/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmr8a.pfb><C:/Users/Jemar John/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmri8a.pfb>
+Output written on conference_paper_abm-drl.pdf (6 pages, 3888267 bytes).
+PDF statistics:
+ 111 PDF objects out of 1000 (max. 8388607)
+ 0 named destinations out of 1000 (max. 500000)
+ 21 words of extra memory for PDF output out of 10000 (max. 10000000)
+

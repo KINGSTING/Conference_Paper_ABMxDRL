@@ -1,7 +1,7 @@
 PWD c:\Users\Jemar John\Desktop\CS_Thesis\Conference_Paper
 INPUT C:\Users\Jemar John\AppData\Local\MiKTeX\miktex\data\le\pdftex\pdflatex.fmt
-INPUT c:\Users\Jemar John\Desktop\CS_Thesis\Conference_Paper\abm-drl_conference.tex
-OUTPUT abm-drl_conference.log
+INPUT c:\Users\Jemar John\Desktop\CS_Thesis\Conference_Paper\conference_paper_abm-drl.tex
+OUTPUT conference_paper_abm-drl.log
 INPUT C:\Users\Jemar John\AppData\Local\Programs\MiKTeX\tex\latex\ieeetran\IEEEtran.cls
 INPUT C:\Users\Jemar John\AppData\Local\Programs\MiKTeX\tex\latex\ieeetran\IEEEtran.cls
 INPUT C:\Users\Jemar John\AppData\Local\Programs\MiKTeX\tex\latex\psnfss\ot1ptm.fd
@@ -99,10 +99,10 @@ INPUT C:\Users\Jemar John\AppData\Local\Programs\MiKTeX\tex\latex\float\float.st
 INPUT C:\Users\Jemar John\AppData\Local\Programs\MiKTeX\tex\latex\float\float.sty
 INPUT C:\Users\Jemar John\AppData\Local\Programs\MiKTeX\tex\latex\l3backend\l3backend-pdftex.def
 INPUT C:\Users\Jemar John\AppData\Local\Programs\MiKTeX\tex\latex\l3backend\l3backend-pdftex.def
-INPUT .\abm-drl_conference.aux
-INPUT .\abm-drl_conference.aux
-INPUT abm-drl_conference.aux
-OUTPUT abm-drl_conference.aux
+INPUT .\conference_paper_abm-drl.aux
+INPUT .\conference_paper_abm-drl.aux
+INPUT conference_paper_abm-drl.aux
+OUTPUT conference_paper_abm-drl.aux
 INPUT C:\Users\Jemar John\AppData\Local\Programs\MiKTeX\tex\context\base\mkii\supp-pdf.mkii
 INPUT C:\Users\Jemar John\AppData\Local\Programs\MiKTeX\tex\context\base\mkii\supp-pdf.mkii
 INPUT C:\Users\Jemar John\AppData\Local\Programs\MiKTeX\tex\context\base\mkii\supp-pdf.mkii
@@ -134,7 +134,7 @@ INPUT C:\Users\Jemar John\AppData\Local\Programs\MiKTeX\fonts\tfm\public\amsfont
 INPUT C:\Users\Jemar John\AppData\Local\Programs\MiKTeX\fonts\tfm\public\amsfonts\symbols\msbm5.tfm
 INPUT C:\Users\Jemar John\AppData\Local\Programs\MiKTeX\fonts\tfm\adobe\times\ptmr7t.tfm
 INPUT C:\Users\Jemar John\AppData\Local\Programs\MiKTeX\fonts\tfm\adobe\times\ptmrc7t.tfm
-OUTPUT abm-drl_conference.pdf
+OUTPUT conference_paper_abm-drl.pdf
 INPUT C:\Users\Jemar John\AppData\Local\Programs\MiKTeX\fonts\vf\adobe\times\ptmr7t.vf
 INPUT C:\Users\Jemar John\AppData\Local\Programs\MiKTeX\fonts\tfm\adobe\times\ptmr8r.tfm
 INPUT C:\Users\Jemar John\AppData\Local\MiKTeX\fonts\map\pdftex\pdftex.map
@@ -153,13 +153,7 @@ INPUT C:\Users\Jemar John\AppData\Local\Programs\MiKTeX\fonts\vf\adobe\times\ptm
 INPUT C:\Users\Jemar John\AppData\Local\Programs\MiKTeX\fonts\tfm\adobe\times\ptmb8r.tfm
 INPUT C:\Users\Jemar John\AppData\Local\Programs\MiKTeX\fonts\vf\adobe\times\ptmrc7t.vf
 INPUT C:\Users\Jemar John\AppData\Local\Programs\MiKTeX\fonts\tfm\adobe\times\ptmr8r.tfm
-INPUT .\images\simul_gym.png
-INPUT .\images\simul_gym.png
-INPUT .\images\simul_gym.png
-INPUT .\images\simul_gym.png
-INPUT .\images\simul_gym.png
-INPUT .\images\simul_gym.png
-INPUT .\images\simul_gym.png
+INPUT C:\Users\Jemar John\AppData\Local\Programs\MiKTeX\fonts\tfm\jknappen\ec\tcrm1000.tfm
 INPUT C:\Users\Jemar John\AppData\Local\Programs\MiKTeX\fonts\tfm\public\amsfonts\cmextra\cmex7.tfm
 INPUT C:\Users\Jemar John\AppData\Local\Programs\MiKTeX\fonts\tfm\public\amsfonts\cmextra\cmex7.tfm
 INPUT C:\Users\Jemar John\AppData\Local\Programs\MiKTeX\fonts\tfm\public\amsfonts\symbols\msam10.tfm
@@ -168,12 +162,16 @@ INPUT C:\Users\Jemar John\AppData\Local\Programs\MiKTeX\fonts\tfm\public\amsfont
 INPUT C:\Users\Jemar John\AppData\Local\Programs\MiKTeX\fonts\tfm\public\amsfonts\symbols\msbm10.tfm
 INPUT C:\Users\Jemar John\AppData\Local\Programs\MiKTeX\fonts\tfm\public\amsfonts\symbols\msbm7.tfm
 INPUT C:\Users\Jemar John\AppData\Local\Programs\MiKTeX\fonts\tfm\public\amsfonts\symbols\msbm5.tfm
+INPUT .\images\simul_gym.png
+INPUT .\images\simul_gym.png
+INPUT .\images\simul_gym.png
+INPUT .\images\simul_gym.png
+INPUT .\images\simul_gym.png
+INPUT .\images\simul_gym.png
+INPUT .\images\simul_gym.png
 INPUT C:\Users\Jemar John\AppData\Local\Programs\MiKTeX\fonts\vf\adobe\times\ptmr7t.vf
 INPUT C:\Users\Jemar John\AppData\Local\Programs\MiKTeX\fonts\vf\adobe\times\ptmb7t.vf
 INPUT C:\Users\Jemar John\AppData\Local\Programs\MiKTeX\fonts\tfm\adobe\times\ptmb8r.tfm
-INPUT C:\Users\Jemar John\AppData\Local\Programs\MiKTeX\tex\latex\psnfss\omsptm.fd
-INPUT C:\Users\Jemar John\AppData\Local\Programs\MiKTeX\tex\latex\psnfss\omsptm.fd
-INPUT C:\Users\Jemar John\AppData\Local\Programs\MiKTeX\tex\latex\psnfss\omsptm.fd
 INPUT C:\Users\Jemar John\AppData\Local\Programs\MiKTeX\fonts\tfm\adobe\times\ptmrc7t.tfm
 INPUT C:\Users\Jemar John\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmr6.tfm
 INPUT C:\Users\Jemar John\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmmi6.tfm
@@ -184,6 +182,8 @@ INPUT C:\Users\Jemar John\AppData\Local\Programs\MiKTeX\fonts\tfm\public\amsfont
 INPUT C:\Users\Jemar John\AppData\Local\Programs\MiKTeX\fonts\tfm\public\amsfonts\symbols\msam7.tfm
 INPUT C:\Users\Jemar John\AppData\Local\Programs\MiKTeX\fonts\tfm\public\amsfonts\symbols\msbm10.tfm
 INPUT C:\Users\Jemar John\AppData\Local\Programs\MiKTeX\fonts\tfm\public\amsfonts\symbols\msbm7.tfm
+INPUT C:\Users\Jemar John\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmb10.tfm
+INPUT C:\Users\Jemar John\AppData\Local\Programs\MiKTeX\fonts\tfm\jknappen\ec\tcrb0800.tfm
 INPUT .\images\Sobol.png
 INPUT .\images\Sobol.png
 INPUT .\images\Sobol.png
@@ -191,27 +191,33 @@ INPUT .\images\Sobol.png
 INPUT .\images\Sobol.png
 INPUT .\images\Sobol.png
 INPUT .\images\Sobol.png
-INPUT .\images\Baseline.png
-INPUT .\images\Baseline.png
-INPUT .\images\Baseline.png
-INPUT .\images\Baseline.png
-INPUT .\images\Baseline.png
-INPUT .\images\Baseline.png
-INPUT .\images\Baseline.png
-INPUT .\images\ppo_result.png
-INPUT .\images\ppo_result.png
-INPUT .\images\ppo_result.png
-INPUT .\images\ppo_result.png
-INPUT .\images\ppo_result.png
-INPUT .\images\ppo_result.png
-INPUT .\images\ppo_result.png
 INPUT C:\Users\Jemar John\AppData\Local\Programs\MiKTeX\fonts\vf\adobe\times\ptmrc7t.vf
 INPUT C:\Users\Jemar John\AppData\Local\Programs\MiKTeX\fonts\tfm\adobe\times\ptmr8r.tfm
 INPUT C:\Users\Jemar John\AppData\Local\Programs\MiKTeX\fonts\vf\adobe\times\ptmb7t.vf
 INPUT C:\Users\Jemar John\AppData\Local\Programs\MiKTeX\fonts\tfm\adobe\times\ptmb8r.tfm
 INPUT C:\Users\Jemar John\AppData\Local\Programs\MiKTeX\fonts\vf\adobe\times\ptmri7t.vf
 INPUT C:\Users\Jemar John\AppData\Local\Programs\MiKTeX\fonts\tfm\adobe\times\ptmri8r.tfm
-INPUT abm-drl_conference.aux
+INPUT .\images\hudrl_vs_vanilla.png
+INPUT .\images\hudrl_vs_vanilla.png
+INPUT .\images\hudrl_vs_vanilla.png
+INPUT .\images\hudrl_vs_vanilla.png
+INPUT .\images\hudrl_vs_vanilla.png
+INPUT .\images\hudrl_vs_vanilla.png
+INPUT .\images\hudrl_vs_vanilla.png
+INPUT .\images\comparison_policy_strategy.png
+INPUT .\images\comparison_policy_strategy.png
+INPUT .\images\comparison_policy_strategy.png
+INPUT .\images\comparison_policy_strategy.png
+INPUT .\images\comparison_policy_strategy.png
+INPUT .\images\comparison_policy_strategy.png
+INPUT .\images\comparison_policy_strategy.png
+INPUT conference_paper_abm-drl.aux
+INPUT C:\Users\Jemar John\AppData\Local\MiKTeX\fonts\pk\ljfour\jknappen\ec\dpi600\tcrb0800.pk
+INPUT C:\Users\Jemar John\AppData\Local\MiKTeX\fonts\pk\ljfour\jknappen\ec\dpi600\tcrb0800.pk
+INPUT C:\Users\Jemar John\AppData\Local\MiKTeX\fonts\pk\ljfour\jknappen\ec\dpi600\tcrm1000.pk
+INPUT C:\Users\Jemar John\AppData\Local\MiKTeX\fonts\pk\ljfour\jknappen\ec\dpi600\tcrm1000.pk
+INPUT C:\Users\Jemar John\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmex10.pfb
+INPUT C:\Users\Jemar John\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmex10.pfb
 INPUT C:\Users\Jemar John\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmmi10.pfb
 INPUT C:\Users\Jemar John\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmmi10.pfb
 INPUT C:\Users\Jemar John\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmmi6.pfb
@@ -224,6 +230,8 @@ INPUT C:\Users\Jemar John\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfo
 INPUT C:\Users\Jemar John\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmr10.pfb
 INPUT C:\Users\Jemar John\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmr7.pfb
 INPUT C:\Users\Jemar John\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmr7.pfb
+INPUT C:\Users\Jemar John\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmr8.pfb
+INPUT C:\Users\Jemar John\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmr8.pfb
 INPUT C:\Users\Jemar John\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmsy10.pfb
 INPUT C:\Users\Jemar John\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmsy10.pfb
 INPUT C:\Users\Jemar John\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmsy7.pfb
