@@ -70,7 +70,7 @@ The core mechanics of behavioral adoption in complex networks are well-documente
 To enforce waste segregation, LGUs typically employ a mix of educational campaigns and penalties. However, environmental sociology highlights a profound ``Intention-Action Gap'' \cite{paigalan2025}. While education effectively improves intrinsic attitudes, it exhibits diminishing returns when structural friction is high. Extrinsic motivators, such as hybrid reward-penalty schemes, are significantly more effective in developing nations because they directly alter the financial cost-benefit analysis of the residents \cite{zhao2022, moeini2023}.
 
 \subsection{ABM and DRL in Governance Simulations}
-Agent-Based Modeling functions as a ``virtual laboratory,'' uniquely equipped to capture population heterogeneity and economic disparities that macro-level System Dynamics models miss \cite{taraghi2025}. While ABM provides the environment, Deep Reinforcement Learning (DRL) is essential for autonomously discovering optimal policies within high-dimensional state spaces. Currently, DRL is extensively utilized for physical waste sorting and collection routing \cite{zheng2022b, udayakumar2023}. However, its application in optimizing governance resources to actively influence human behavior remains critically under-explored. 
+Agent-Based Modeling functions as a ``virtual laboratory,'' uniquely equipped to capture population heterogeneity and economic disparities that macro-level System Dynamics models miss \cite{taraghi2025}. While ABM provides the environment, Deep Reinforcement Learning (DRL) is essential for autonomously discovering optimal policies within high-dimensional state spaces. Currently, DRL is extensively utilized for physical waste sorting and collection routing \cite{zheng2022b, zhang2021}. However, its application in optimizing governance resources to actively influence human behavior remains critically under-explored.
 
 \section{Methodology}
 
@@ -157,10 +157,11 @@ Crucially, to simulate polycentric governance, the agent operates a \textit{casc
 \subsection{Mayor Agent with Heuristic-Guided DRL (HuDRL)}
 
 \subsubsection{Proximal Policy Optimization}
-The LGU policymaker (the ``Mayor Agent'') is powered by an Actor-Critic Proximal Policy Optimization (PPO) neural network \cite{zheng2022b}. The Actor network outputs continuous budget allocations strictly bounded by a Softmax normalization layer. As established by the ``Personnel Trap,'' this layer guarantees the \textpeso 1,500,000 fiscal limit is never breached by forcing the multi-dimensional action vector to sum to exactly 100\% of available funds. Concurrently, the Critic network evaluates the expected long-term return, utilizing PPO's clipped surrogate objective to prevent catastrophic policy shifts during training \cite{udayakumar2023}. To ensure computational reproducibility, the neural network architecture comprises two fully connected hidden layers of 64 units each for both the Actor and Critic networks, utilizing Rectified Linear Unit (ReLU) activation functions. The model is trained with a discount factor ($\gamma$) of 0.99, a learning rate of $0.0003$, a rollout buffer of 1024 steps, a batch size of 128, and an entropy coefficient of 0.01.
+The LGU policymaker (the ``Mayor Agent'') is powered by an Actor-Critic Proximal Policy Optimization (PPO) neural network \cite{zheng2022b}. The Actor network outputs continuous budget allocations strictly bounded by a Softmax normalization layer. As established by the ``Personnel Trap,'' this layer guarantees the \textpeso 1,500,000 fiscal limit is never breached by forcing the multi-dimensional action vector to sum to exactly 100\% of available funds. To ensure computational reproducibility, the neural network architecture comprises two fully connected hidden layers of 64 units each for both the Actor and Critic networks, utilizing Rectified Linear Unit (ReLU) activation functions. The model is trained with a discount factor ($\gamma$) of 0.99, a learning rate of $0.0003$, a rollout buffer of 1024 steps, a batch size of 128, and an entropy coefficient of 0.01.
 
 \subsubsection{Multi-Objective Reward Shaping}
-Directing human behavior introduces the ``Sparse Reward Problem,'' where delayed causal effects cause standard AI agents to fail \cite{zheng2022b}. This necessitates a dense feedback architecture capable of evaluating intermediate municipal actions long before the final socio-behavioral tipping points are actually reached. To overcome this, the MDP utilizes a composite reward function ($R_{total}$):
+Directing human behavior introduces the ``Sparse Reward Problem,'' where delayed causal effects cause standard AI agents to fail \cite{zheng2022b}. To overcome this, the MDP utilizes a composite reward function ($R_{total}$):
+
 \begin{equation}
 \begin{split}
 R_{total} = &w_{1}R_{Comp} + w_{2}R_{Sustain} \\
@@ -238,7 +239,7 @@ A Sobol Global Sensitivity Analysis (GSA) \cite{sobol2001} revealed that the ``C
 \vspace{-0.3cm}
 \end{figure}
 
-\subsection{Comparative Convergence: Heuristic vs. Non-Heuristic PPO}
+\subsection{Comparison on Heuristic vs. Non-Heuristic PPO}
 To evaluate the efficacy of these methodological refinements, the simulation benchmarked the HuDRL architecture against the baseline Non-Heuristic PPO approach over a 12-quarter horizon. Figure \ref{fig:heuristic_vs_non_heuristic} illustrates the Global Compliance Rate trajectories for both models relative to the defined Stability Threshold ($70\%$) and Collapse Zone ($<40\%$).
 
 The \textit{Non-Heuristic Approach} (represented by the dashed grey trajectory) exhibited severe policy stagnation. Throughout the entire 3-year simulation timeline, the global compliance rate remained virtually flat at approximately $20\%$. This performance consistently trapped the municipality within the ``Collapse Zone,'' mathematically proving that without heuristic action-masking or adaptive triage logic, the system failed to concentrate enough capital to incentivize behavioral change due to the sparse reward problem \cite{zheng2022b}.
@@ -276,7 +277,9 @@ The authors thank the Bacolod LGU for providing essential audit data and the MSU
 Generative AI was used solely for language editing and formatting; all core research, data analysis, and algorithmic design are the authors' original work.
 
 \section*{Conflict of Interest}
-The authors declare no conflicts of interest.
+\begin{center}
+    The authors declare no conflicts of interest.
+\end{center}
 
 \begin{thebibliography}{00}
 
@@ -304,8 +307,7 @@ The authors declare no conflicts of interest.
 
 \bibitem{moeini2023} B. Moeini, et al., ``Effect of household interventions on promoting waste segregation behavior at source: A systematic review,'' \textit{Sustainability}, vol. 15, no. 24, p. 16546, 2023.
 
-\bibitem{udayakumar2023} R. Udayakumar, et al., ``Improved particle swarm optimization with deep learning-based municipal solid waste management in smart cities,'' \textit{Revista de Gestão Social e Ambiental}, vol. 17, no. 4, p. e03561, 2023.
-
+\bibitem{zhang2021} S. Zhang, J. Zhang, Z. Zhao, and C. Xin, ``Robust optimization of municipal solid waste collection and transportation with uncertain waste output: A case study,'' \textit{Journal of Systems Science and Systems Engineering}, vol. 31, no. 2, 2021.
 \end{thebibliography}
 
 \end{document}
