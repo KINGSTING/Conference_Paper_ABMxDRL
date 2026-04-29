@@ -1,3 +1,4 @@
+% TARGET CONFERENCE: TENCON 2026
 \documentclass[journal,a4paper]{IEEEtran}
 \IEEEoverridecommandlockouts
 \usepackage{cite}
@@ -9,18 +10,8 @@
 \usepackage{booktabs}
 \usepackage{algorithm}
 \usepackage{float}
-\usepackage{microtype} 
-% Proper IEEE Captions: Centered, 8pt font, and Table titles in Small Caps
-\usepackage[font=footnotesize,justification=centering]{caption}
-\DeclareCaptionLabelSeparator{periodspace}{. }
-\captionsetup{labelsep=periodspace}
-
-% Symbol rendering
-\usepackage{textcomp}
-\newcommand{\peso}{{\textpeso}}
-
-\def\BibTeX{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08em
-    T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
+\usepackage[justification=centering, labelsep=colon]{caption}
+\captionsetup[table]{labelsep=newline, textfont=sc, labelformat=simple, justification=centering}
 
 \begin{document}
 
@@ -28,173 +19,111 @@
 
 \author{
 \IEEEauthorblockN{Jemar John J. Lumingkit, Hussam M. Bansao, and Dante D. Dinawanao} \\
-\IEEEauthorblockA{\textit{Department of Computer Science,}
-\textit{Mindanao State University - Iligan Institute of Technology}\\
-Iligan City, Philippines \\
-\{jemarjohn.lumingkit, hussam.bansao, dante.dinawanao\}@g.msuiit.edu.ph}
+\IEEEauthorblockA{\textit{Department of Computer Science, Mindanao State University - Iligan Institute of Technology}\\
+Iligan City, Philippines | \{jemarjohn.lumingkit, hussam.bansao, dante.dinawanao\}@g.msuiit.edu.ph}
 }
 
 \maketitle
 
 \begin{abstract}
-Achieving a resilient and sustainable society requires intelligent systems capable of navigating the complex behavioral dynamics of urban waste management. The "MRF Paradox" exposes a systemic failure in this transition: nationwide increases in Material Recovery Facilities (MRFs) often coincide with simultaneous surges in illegal dumping. This suggests that infrastructure alone is insufficient; the fundamental bottleneck lies within household-level behavioral friction. We introduce an intelligent framework coupling an Agent-Based Model (ABM) with a Heuristic-Guided Deep Reinforcement Learning (HuDRL) agent. Formalizing household cognition via the Theory of Planned Behavior, sensitivity analysis proves that internal household friction drives 79\% of non-compliance. Our HuDRL agent discovers a "Sequential Saturation" strategy to trigger localized social tipping points. This research provides a predictive paradigm for resilient municipal governance, transforming trial-and-error budgeting into a defensible, data-driven system for sustainable environmental outcomes.
+Effective municipal solid waste (MSW) segregation is a critical sustainability bottleneck. Applying Deep Reinforcement Learning (DRL) to optimize policy in multi-agent human environments faces the sparse reward problem due to cultural inertia. We introduce a socio-technical framework coupling an Agent-Based Model (ABM) with a Heuristic-Guided DRL (HuDRL) agent for predictive governance. Using Bacolod, Lanao del Norte as a testbed, we optimize resource allocation via a Theory of Planned Behavior (TPB) cognitive model. Global Sensitivity Analysis proves that internal household friction accounts for 79\% of system variance. To navigate this non-convex space, the HuDRL agent utilizes action masking and a targeted amplification algorithm. Simulations reveal that while standard policies stagnate, the HuDRL agent converges on a ``Sequential Saturation'' strategy—concentrating funding into single nodes until tipping points are breached. This approach proves vastly superior to equitable distribution, directly advancing Sustainable Development Goals 11, 12, and 16.
 \end{abstract}
 
 \begin{IEEEkeywords}
-Agent-Based Modeling, Deep Reinforcement Learning, Municipal Solid Waste Management, Polycentric Governance, Resilient Systems.
+Agent-Based Modeling, Deep Reinforcement Learning, MSW Management, Sparse Reward Problem, Theory of Planned Behavior.
 \end{IEEEkeywords}
 
 \section{Introduction}
-Building a resilient and sustainable society necessitates a fundamental shift in how municipalities manage solid waste (MSW). In the Philippines, the implementation of R.A. 9003 has encountered the "MRF Paradox": despite a surge in mandated Material Recovery Facilities (MRFs), illegal dumping and non-compliance continue to escalate. This paradox highlights that physical infrastructure alone cannot overcome deeply ingrained behavioral inertia. The true bottleneck is the internal friction of household-level labor—washing, sorting, and storing waste—which currently traps Local Government Units (LGUs) in a cycle of trial-and-error budgeting.
+Sustainable society requires systems capable of optimizing complex human environments. Socio-economic systems are characterized by bounded rationality and cultural inertia, creating non-convex policy spaces where equitable resource distribution—a common human bias—is often suboptimal. From a computational view, standard DRL faces a severe ``Sparse Reward Problem''~\cite{zheng2022b} because human behavior shifts require sustained pressure before state changes occur.
 
-Optimizing policy in these environments is a high-dimensional systems analysis challenge characterized by human hysteresis~\cite{tian2024}. Psychological models like the Theory of Planned Behavior (TPB) clarify that intentions are frequently overridden by the physical "Cost of Effort"~\cite{taraghi2025, moeini2023}. While Deep Reinforcement Learning (DRL) offers a path to autonomous policy discovery~\cite{zheng2022b}, standard agents suffer from a severe "Sparse Reward Problem." They struggle to link short-term fiscal actions to the long-term, sustained pressure required to reach critical social tipping points~\cite{centola2018, andre2021}.
-
-To foster resilient municipal governance, this study proposes an intelligent system coupling an ABM with a Heuristic-Guided DRL (HuDRL) agent. By simulating household friction and neighborhood influence, the HuDRL agent navigates a non-convex policy space to discover budget allocations that maximize long-term compliance. This methodology provides LGUs with a mathematical foundation to transition from reactive spending to a predictive framework for sustainable development.
+This study uses Municipal Solid Waste (MSW) management as a testbed. In the Philippines, despite the mandates of R.A. 9003, Local Government Units (LGUs) struggle with the ``MRF Paradox'': while recovery facilities increased by 8.7\% in 2024, illegal dumpsites concurrently surged by 84\%~\cite{psa2025}. We propose a coupled ABM and DRL architecture integrating TPB to simulate structural friction. A HuDRL agent representing municipal authority then optimizes budget allocations to overcome behavioral inertia within strict fiscal realities.
 
 \section{Related Work}
-Sustainable waste management depends on the "Intention-Action Gap." Psychological research indicates that even with high environmental awareness, participation drops as the physical labor of sorting increases~\cite{moeini2023}. Ceschi et al.~\cite{ceschi} utilized ABM to nudge recycling behavior through norm-based policies, demonstrating that peer influence is a critical driver of adoption. Furthermore, the "AI Economist" established the efficacy of utilizing multi-agent reinforcement learning to optimize high-dimensional policy spaces like taxation~\cite{zheng2022b}. This study builds upon these foundations by applying DRL to the socio-technical challenge of inducing source segregation within a polycentric governance structure.
+\subsection{Behavioral Friction and Tipping Points}
+TPB posits that intention is a function of Attitude, Subjective Norms, and Perceived Behavioral Control~\cite{taraghi2025}. However, environmental compliance is frequently obstructed by the ``Cost of Effort''~\cite{moeini2023}. Sustained change relies on tipping points; once a minority reaches $\sim$25\%, it can trigger cascades across the majority~\cite{centola2018}, creating a ``Social Norm Shield'' where behavior resists decay at compliance $\ge$70\%~\cite{andre2021}.
 
-\section{System Architecture and Environment}
-The simulation is geographically bounded to Bacolod, Lanao del Norte. It utilizes a spatially explicit $50 \times 50$ grid containing 4,022 Household Agents across seven barangays. The architecture bridges micro-behavior and macro-policy via a dual-clock resolution: households execute logic on daily ticks, while the central Mayor Agent executes budget distributions on quarterly (90-day) epochs over a 3-year simulation horizon. Meso-level Barangay Agents act as data aggregators, compressing micro-outputs into 17-dimensional state vectors.
+\subsection{Algorithmic Policy Design}
+Traditional optimization fails to capture non-linear social hysteresis~\cite{tian2024}. While research exists for MSW logistics~\cite{zhang2021}, behavioral bottlenecks remain understudied. ABMs offer virtual laboratories, but manual testing is labor-intensive. By formalizing environments as a Markov Decision Process (MDP), neural networks can discover adaptive strategies, provided they utilize heuristics and action masking to respect fiscal boundaries~\cite{zheng2022b}.
 
-\begin{figure}[htbp] 
-\centering
-\includegraphics[width=0.85\columnwidth]{images/simul_gym.pdf}
-\caption{System Architecture. The diagram illustrates the coupling between the ABM micro-simulation and the HuDRL macro-optimization agent.}
-\label{fig:simul_diagram}
-\end{figure}
+\section{System Architecture}
+The simulation is bounded to Bacolod, Lanao del Norte, containing 4,022 Household Agents across seven barangays. The architecture uses a dual-clock temporal resolution: households act daily (micro-ticks), while the Mayor Agent optimizes budgets quarterly (90-day epochs) over a 3-year horizon. Meso-level Barangay Agents aggregate micro-data into a 17-dimensional state vector, reducing computational complexity to $\mathcal{O}(N)$.
 
-\section{Multi-Agent Modeling}
-\subsection{Household Cognition and Structural Friction}
-Household behavior is governed by a dynamically weighted TPB utility equation ($U_{seg}$) derived from Ceschi et al.~\cite{ceschi}:
+\section{The Multi-Agent Environment}
+\subsection{Household Agents and Cognitive Weights}
+Household utility ($U_{seg}$) is governed by a weighted TPB equation:
 \begin{equation}
-U_{seg} = (w_{A}A) + (w_{SN}SN_{loc}) + (w_{PBC}PBC) - C_{Net} + \epsilon
+U_{seg} = (w_{A}(t)A) + (w_{SN}(t)SN_{loc}) + (w_{PBC}(t)PBC) - C_{Net} + \epsilon
 \end{equation}
-The Net Cost ($C_{Net}$) function mathematically formalizes structural friction:
-\begin{equation}
-    C_{Net} = C_{Effort} + \eta (C_{Mon} - I - F \cdot P_{Detect})
-\end{equation}
-where $C_{Effort}$ is the internal friction of household labor and $\eta$ is the income-sensitivity multiplier. To model cultural resilience, if local compliance breaches the 70\% tipping point ($SN_{loc} \ge 0.70$), the behavior internalizes, creating a "Social Norm Shield" where the behavior resists decay even if incentives are removed.
+where $C_{Net}$ represents internal household friction (sorting and storing) weighed against incentives and fines~\cite{zhao2022}. If local compliance breaches 70\%, behavior internalizes, hard-locking $w_{sn}(t)$ at 0.90.
 
-\section{The HuDRL Optimization Framework}
+\subsection{Enforcement and Local Administrative Nodes}
+Enforcement agents execute stochastic random walks with a cost of PHP 12,000 per macro-enforcer. Barangay Agents execute a Cascading Incentive Protocol, drawing from local allotments and municipal augmentation. Exhausted budgets trigger a ``Perceived Unfairness'' penalty, degrading household motivation~\cite{moeini2023}.
 
-\subsection{MDP Specification}
-The policymaker is formalized as an episodic MDP defined by $\langle \mathcal{S}, \mathcal{A}, \mathcal{P}, \mathcal{R}, \gamma \rangle$. To ensure technical rigor, the state and action spaces are detailed in Table~\ref{tab:mdp}.
+\section{The Deep Reinforcement Learning Agent}
+\subsection{MDP Formulation and Training}
+The state space is a 17-dimensional vector representing compliance, budget exhaustion, and political capital. The 21-dimensional action space controls three fiscal instruments per barangay. We use PPO with a Temperature-Scaled Softmax ($\tau=5.0$) to ensure the total budget (PHP 375,000/quarter) is fully allocated. Training details are in Table I.
 
-\begin{table}[htbp]
+\begin{table}[ht]
 \centering
-\caption{MDP State and Action Space Definitions}
-\label{tab:mdp}
-\footnotesize
-\begin{tabular}{lp{5.5cm}}
-\toprule
-Space & Components \\
-\midrule
-\textbf{State ($\mathcal{S}$)} & Quarterly compliance per barangay ($\times7$), budget exhaustion rates ($\times7$), global compliance, quarter index, political capital. \\
-\textbf{Action ($\mathcal{A}$)} & Continuous vector representing funding for IEC, Enforcement, and Incentives across 7 barangays (21 dimensions). \\
-\bottomrule
-\end{tabular}
-\end{table}
-
-\subsection{Action Masking and Training Setup}
-To navigate the non-convex policy space, we utilize a 70\% Graduation Mechanism. Once a locale hits the tipping point, the algorithm slashes funding by 99\%, forcing the agent to pivot resources to failing areas. The agent was trained using PPO with the configuration in Table~\ref{tab:hyperparameters}.
-
-\begin{table}[htbp]
-\centering
-\caption{PPO Training Configuration and Hyperparameters}
+\caption{Training Configuration}
 \label{tab:hyperparameters}
-\footnotesize
-\begin{tabular}{ll}
+\begin{tabular}{@{}ll|ll@{}}
 \toprule
-Parameter & Value \\
-\midrule
-Parallel Environments & 4 (SubprocVecEnv) \\
-Rollout Buffer ($n\_steps$) & 1,024 \\
-Batch Size & 128 \\
-Learning Rate & $3 \times 10^{-4}$ \\
-Entropy Coefficient & 0.01 \\
-Total Timesteps & 500,000 \\
-Evaluation Metric & Mean $\pm$ Std (5 random seeds) \\
-\bottomrule
+\textbf{Parameter} & \textbf{Value} & \textbf{Parameter} & \textbf{Value} \\ \midrule
+Learning Rate & 0.0003 & Horizon & 1024 \\
+Batch Size & 128 & $\gamma$ & 0.99 \\
+Architecture & MlpPolicy & Seeds & 5 \\ \bottomrule
 \end{tabular}
 \end{table}
+
+\subsection{Reward Shaping}
+The composite reward $R_t$ uses a +200 point $R_{Jackpot}$ for breaching the 70\% threshold and a $P_{Waste}$ quadratic penalty for redundant funding in ``graduated'' barangays. A logarithmic $\Phi_{cap}$ penalty prevents political collapse if approval drops below 25\%.
 
 \section{Results and Discussion}
+\subsection{Sensitivity Analysis}
+Sobol GSA (Table II) reveals that $C_{Effort}$ is the dominant driver of compliance ($S_1=0.79$), while Attitude Weight exhibits near-zero sensitivity. This proves that structural support is more critical than information campaigns for waste segregation.
 
-\subsection{Global Sensitivity Analysis}
-Sobol Global Sensitivity Analysis ($N=1024$) proves that $C_{effort}$ is the dominant driver of the MRF Paradox, accounting for 79.2\% of system variance (Table~\ref{tab:sobol}).
-
-\begin{table}[htbp]
+\begin{table}[ht]
 \centering
-\caption{Sobol Indices for Household Compliance Factors}
-\label{tab:sobol}
-\footnotesize
-\begin{tabular}{lcccc}
+\caption{Sobol Sensitivity Indices}
+\label{tab:sobol_indices}
+\begin{tabular}{@{}lcc@{}}
 \toprule
-Factor & $S_1$ & $S_T$ & 95\% CI & Total Var. \\
-\midrule
-Cost of Effort ($C_{Effort}$) & 0.792 & 0.841 & $\pm$0.038 & 79.2\% \\
-Perceived Behavioral Control ($w_{PBC}$) & 0.081 & 0.114 & $\pm$0.012 & 8.1\% \\
-Social Norms ($w_{SN}$) & 0.045 & 0.062 & $\pm$0.009 & 4.5\% \\
-Decay Rate ($k_{decay}$) & 0.024 & 0.038 & $\pm$0.006 & 2.4\% \\
-Attitude Weight ($w_{A}$) & 0.014 & 0.028 & $\pm$0.004 & 1.4\% \\
-\bottomrule
+\textbf{Input Parameter} & \textbf{First-Order ($S_1$)} & \textbf{Total-Order ($S_T$)} \\ \midrule
+Attitude Weight ($w_A$) & 0.00 & 0.10 \\
+Cost of Effort ($C_{Effort}$) & \textbf{0.79} & \textbf{1.06} \\ \bottomrule
 \end{tabular}
 \end{table}
 
-\subsection{Policy Traps and Zones}
-We numerically define several observed states:
-\begin{itemize}
-    \item \textbf{Collapse Zone:} Sustained compliance $<25\%$ across all barangays for $\ge3$ consecutive quarters.
-    \item \textbf{Draconian Trap:} Spiking enforcement causing \textit{Political Collapse} (approval $<10\%$), leading to administrative failure.
-    \item \textbf{Transactional Trap:} Budget exhaustion without established norms, where compliance drops immediately upon incentive withdrawal.
-\end{itemize}
+\subsection{Comparative Analysis}
+HuDRL outperformed Vanilla PPO (Reward: 10551.7 vs 1728.6) by discovering a ``Sequential Saturation'' strategy. As shown in Fig 1, the AI concentrated $\ge$60\% of funds onto single barangays to force social tipping points. Once compliance reached 70\%, the ``Social Norm Shield'' maintained the state, allowing the agent to pivot funds to the next bottleneck. This method reached 90.45\% compliance, whereas equitable distribution stagnated at 30.18\%.
 
-\subsection{Comparative Analysis of Policy Strategies}
-Simulation experiments demonstrate a stark divergence between intuitive heuristics and DRL optimization (Table~\ref{tab:results}). The \textit{Status Quo} baseline distributing funds equally created an "Urban Resource Trap" in dense areas. The HuDRL agent’s discovery of \textit{"Sequential Saturation"}—concentrating up to 69\% of budget on single failing nodes—proves that resolving the MRF Paradox requires bypassing human bias toward simultaneous fairness.
-
-\begin{table}[htbp]
+\begin{figure}[ht] 
 \centering
-\caption{Compliance Rates of Simulated Policy Strategies}
-\label{tab:results}
-\footnotesize
-\begin{tabular}{ll}
-\toprule
-Policy Strategy & Global Compliance (\%) \\
-\midrule
-Status Quo (Equitable Distribution) & 30.18\% \\
-Pure Enforcement & Political Collapse (Q2) \\
-Pure Incentives & 15.91\% \\
-\textbf{HuDRL (Proposed)} & \textbf{90.45\%} \\
-\bottomrule
-\end{tabular}
-\end{table}
-
-\begin{figure}[htbp] 
-    \centering
-    \includegraphics[width=0.85\columnwidth]{images/hudrl_vs_vanilla.png}
-    \caption{Convergence Profile. HuDRL crosses the stability threshold by Q2, whereas standard PPO remains in the Collapse Zone.}
-\label{fig:convergence}
+\includegraphics[width=0.82\linewidth]{images/comparison_policy_strategy.png}
+\caption{Compliance Rate Performance}
+\label{fig:comparison_policy_graph}
 \end{figure}
 
-\section{Conclusion and Recommendations}
-This study proves that resolving the "MRF Paradox" requires a shift from infrastructure-centric management to a \textit{Sequential Saturation} model. We recommend that LGUs concentrate resources on specific barangays to trigger tipping points before pivoting. Additionally, policy should prioritize reducing household "Cost of Effort" (e.g., providing pre-labeled bins) to maximize long-term environmental sustainability.
+\subsection{Limitations}
+Validity is bounded by the calibration to a single 4th-class municipality. Baseline psychological parameters were literature-seeded, and household agents lack deep demographic heterogeneity beyond income-sensitivity. Future work should explore MARL for commercial actors and 10-year horizons to test habit permanence.
+
+\section{Conclusion}
+HuDRL proves that building resilient societies requires abandoning equitable resource dilution in favor of targeted saturation. By formalizing policy as an MDP, LGUs can replace trial-and-error budgeting with precision-targeted mathematical strategies.
 
 \section*{Acknowledgment}
-The authors thank the LGU of Bacolod and MSU-IIT for their support. This work received no external funding. Reproducibility: Code at [GitHub/Zenodo].
-
-\section*{Use of Generative AI}
-The authors used Google Gemini Pro for language refinement (grammar, phrasing, and readability) across the Abstract, Introduction, and Conclusion. The AI system did not contribute to research design or results interpretation.
+Source code available at \texttt{github.com/KINGSTING/THESIS\_ABMxDRL}. Language refinement aided by Gemini Pro.
 
 \begin{thebibliography}{00}
-\footnotesize
-\bibitem{ra9003} Republic of the Philippines, ``Ecological Solid Waste Management Act of 2000, Rep. Act No. 9003,'' Jan. 2001.
-\bibitem{tian2024} X. Tian, et al., ``Agent-based modeling in solid waste management,'' \textit{Env. Impact Assess. Rev.}, vol. 110, 2024.
-\bibitem{centola2018} D. Centola, et al., ``Experimental evidence for tipping points in social convention,'' \textit{Science}, vol. 360, 2018.
-\bibitem{taraghi2025} M. Taraghi and L. Yoder, ``Integrating the theory of planned behavior in ABMs,'' \textit{Ecological Modelling}, vol. 508, 2025.
-\bibitem{moeini2023} B. Moeini, et al., ``Effect of household interventions on promoting waste segregation,'' \textit{Sustainability}, vol. 15, 2023.
-\bibitem{zheng2022b} S. Zheng, et al., ``The AI Economist: Taxation policy design via RL,'' \textit{Science Advances}, vol. 8, no. 18, 2022.
-\bibitem{ceschi} A. Ceschi, et al., ``Testing a norm-based policy for waste management,'' \textit{Journal of Env. Mgmt.}, vol. 294, 2021.
+\bibitem{ra9003} R.A. 9003, Jan. 2001.
+\bibitem{zheng2022b} S. Zheng, \textit{Sci. Adv.}, 2022.
+\bibitem{psa2025} PSA Compendium, 2025.
+\bibitem{taraghi2025} M. Taraghi, \textit{Ecol. Mod.}, 2025.
+\bibitem{moeini2023} B. Moeini, \textit{Sustainability}, 2023.
+\bibitem{centola2018} D. Centola, \textit{Science}, 2018.
+\bibitem{andre2021} H. Andre, \textit{Glob. Env. Ch.}, 2021.
+\bibitem{tian2024} X. Tian, \textit{Env. Imp. Ass. Rev.}, 2024.
+\bibitem{zhang2021} S. Zhang, \textit{J. Syst. Sci.}, 2021.
+\bibitem{zhao2022} A. Zhao, \textit{Dev. Econ.}, 2022.
 \end{thebibliography}
-
 \end{document}
